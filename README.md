@@ -67,11 +67,18 @@ TODO: -add: PEMDAS
 
 <img src="https://github.com/usbong/calc/blob/main/plan/pemdasPlanParenthesis20260506.jpg" width="60%">
 
-10. 20260507 (CURRENT); http://store.usbong.ph/server/calc/index.html<br/>
+10. 20260507; http://store.usbong.ph/server/calc/index.html<br/>
 +updated: work-in-progress function to process the parentheses with code for debugging purposes; can now prepare the input to be processed<br/> 
 **Example:**<br/> 
 **input:** `2*(1-(1+2*6))`<br/>
 **output:** `1+2*6`
+
+11. 20260508 (CURRENT); http://store.usbong.ph/server/calc/index.html<br/>
++updated: function to process the parentheses; can now output correctly given the input; though not yet integrated with the rest of the code<br/> 
+**Example:**<br/> 
+**input:** 2×(1-(1+2×6))<br/> 
+**process:** 2×(1-A)<br/>
+**output:** 2×(1-13)<br/>
 
 # Get PhilNITS Certified!
 
