@@ -73,13 +73,24 @@ TODO: -add: PEMDAS
 **input:** `2*(1-(1+2*6))`<br/>
 **output:** `1+2*6`
 
-11. 20260508 (CURRENT); http://store.usbong.ph/server/calc/index.html<br/>
+11. 20260508; http://store.usbong.ph/server/calc/index.html<br/>
 +updated: function to process the parentheses; can now output correctly given the input; though not yet integrated with the rest of the code<br/> 
 **Example:**<br/> 
-**input:** 2×(1-(1+2×6))<br/> 
-**process:** 2×(1-A)<br/>
-**output:** 2×(1-13)<br/>
+**input:** `2×(1-(1+2×6))`<br/> 
+**process:** `2×(1-A)`<br/>
+**output:** `2×(1-13)`<br/>
 
+12. 20260509 (CURRENT); http://store.usbong.ph/server/calc/index.html<br/>
++updated: function to process the parentheses; gradually getting integrated with the rest of the code;<br/>
++noted: opted to add code that reads the input as a string of characters, which is auto-processed, identifying which are operands and which are operators, while storing them in the correct sequence;<br/>
++noted: right now, the first set inside the parentheses from the right has to be manually identified and then put into `arrayOperator` and `arrayOperand`<br/>
+**Example:**<br/> 
+**input:** `3×(1-2)`<br/> 
+**process:** `3×-1`<br/> 
+**output (CORRECT):** `-3`<br/> 
+TODO: -reverify: with other example cases, e.g. `2×(1-(1+2×6))`<br/>
+TODO: -add: `3(5)` which is equal to `3×5`<br/>  
+		
 # Get PhilNITS Certified!
 
 https://philnits.org/
