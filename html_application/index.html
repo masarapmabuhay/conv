@@ -661,11 +661,12 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 						//only one operator allowed
 						//due to 9/3*2; error where 9/(3*2) is done instead of (9/3)*2
 						if (arrayOperator.length>0) {
+/*						
 							alert("!!!arrayOperator.at(-1): "+arrayOperator.at(-1));
 
 							alert("!!!answerInput.value: "+answerInput.value);
 							alert("!!!sCurrOperand: "+sCurrOperand);
-														
+*/														
 							//set this here due to 3*3-B2=error; without the following:
 							//arrayOperand.push(parseFloat(sCurrOperand));
 							//although it's only needed if the user presses backspace
@@ -1021,14 +1022,14 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 		}
 	
 		//added by Mike, 20260429
-		alert (answerInput.value);
+		//alert (answerInput.value);
 	
 		if (answerInput.value.includes("NaN")) {
 			reset();
-			
+/*			
 			alert("operandOne: "+operandOne);
 			alert("operandTwo: "+operandTwo);
-			
+*/			
 			//NaN was caused by an operand whose value is only "."
 			if ((Number.isNaN(operandOne)) || (Number.isNaN(operandTwo))) {
 				answerInput.value = "0";
