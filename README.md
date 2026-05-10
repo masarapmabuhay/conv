@@ -43,7 +43,7 @@ Add basic arithmetic: Addition, Subtraction, Multiplication, Division
 TODO: -fix: `3*-B` becomes `3`, instead of `3*`<br/>
 TODO: -fix: `-*B` now removes both `-*`
 
-7. 20260504; http://store.usbong.ph/server/calc/index.html<br/>
+7. 20260504; http://store.usbong.ph/server/calc/index20260504.html<br/>
 +fixed: `3*-B` becomes `3`, instead of `3*`<br/>
 +fixed: `-*B` now removes both `-*`; `-*` already results to `<blank>`<br/>
 +fixed: `-*` should result to `<blank>`<br/>
@@ -52,7 +52,7 @@ TODO: -add: PEMDAS
 
 <img src="https://github.com/usbong/calc/blob/main/plan/pemdasPlan20260504.jpg" width="60%">
 
-8. 20260505; http://store.usbong.ph/server/calc/index.html<br/>
+8. 20260505; http://store.usbong.ph/server/calc/index.html20260505<br/>
 +added: PEMDAS without yet the parenthesis<br/>
 +tested: to output the correct answer with the following:<br/>
 `6*2+1=13`<br/>
@@ -62,7 +62,7 @@ TODO: -add: PEMDAS
 `1*3/6=0.5`<br/>
 `2*5/3=3.333333333`<br/>
 
-9. 20260506; http://store.usbong.ph/server/calc/index.html<br/>
+9. 20260506; http://store.usbong.ph/server/calc/index20260510-BUGGY.html<br/>
 +added: work-in-progress function to process the parentheses with code for debugging purposes
 
 <img src="https://github.com/usbong/calc/blob/main/plan/pemdasPlanParenthesis20260506.jpg" width="60%">
@@ -73,14 +73,14 @@ TODO: -add: PEMDAS
 **input:** `2*(1-(1+2*6))`<br/>
 **output:** `1+2*6`
 
-11. 20260508; http://store.usbong.ph/server/calc/index.html<br/>
+11. 20260508; http://store.usbong.ph/server/calc/index20260510-BUGGY.html<br/>
 +updated: function to process the parentheses; can now output correctly given the input; though not yet integrated with the rest of the code<br/> 
 **Example:**<br/> 
 **input:** `2×(1-(1+2×6))`<br/> 
 **process:** `2×(1-A)`<br/>
 **output:** `2×(1-13)`<br/>
 
-12. 20260509 (CURRENT); http://store.usbong.ph/server/calc/index.html<br/>
+12. 20260509; http://store.usbong.ph/server/calc/index20260510-BUGGY.html<br/>
 +updated: function to process the parentheses; gradually getting integrated with the rest of the code;<br/>
 +noted: opted to add code that reads the input as a string of characters, which is auto-processed, identifying which are operands and which are operators, while storing them in the correct sequence;<br/>
 +noted: right now, the first set inside the parentheses from the right has to be manually identified and then put into `arrayOperator` and `arrayOperand`<br/>
@@ -90,6 +90,29 @@ TODO: -add: PEMDAS
 **output (CORRECT):** `-3`<br/> 
 TODO: -reverify: with other example cases, e.g. `2×(1-(1+2×6))`<br/>
 TODO: -add: `3(5)` which is equal to `3×5`<br/>  
+				
+13. 20260510 (CURRENT); http://store.usbong.ph/server/calc/index.html<br/>
++reverted: to version 20260505 with updates such as:<br>
++updated: to allow only one operator; due to `9/3*2`; error where `9/(3*2)` is done instead of `(9/3)*2`<br/>
++fixed: `3*3-B3=` results to error; by changing `B` to `C` ("Clear") to prevent the user from pressing backspace; other cases such as `3*3-=` are already giving the correct outputs;<br>
+
+<table border="1">
+  <tr>
+    <td>
+		<h3>
+		Thanks for checking out my development logs.<br/>
+		<br/>
+		This is what I've been able to accomplish in two weeks using my available free time.<br/>
+		<br/>
+		http://store.usbong.ph/server/calc/index.html
+		</h3>
+	</td>
+  </tr>
+</table>
+
+14. TODO BONUS:<br/> 
+
+TODO: -add: processing of parentheses
 		
 # Get PhilNITS Certified!
 
