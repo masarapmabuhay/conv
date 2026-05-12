@@ -91,7 +91,7 @@ TODO: -add: PEMDAS
 TODO: -reverify: with other example cases, e.g. `2×(1-(1+2×6))`<br/>
 TODO: -add: `3(5)` which is equal to `3×5`<br/>  
 				
-13. 20260510 (CURRENT); http://store.usbong.ph/server/calc/index.html20260510<br/>
+13. 20260510; http://store.usbong.ph/server/calc/index.html20260510<br/>
 +reverted: to version 20260505 with updates such as:<br>
 +updated: to allow only one operator; due to `9/3*2`; error where `9/(3*2)` is done instead of `(9/3)*2`<br/>
 +fixed: `3*3-B3=` results to error; by changing `B` to `C` ("Clear") to prevent the user from pressing backspace; other cases such as `3*3-=` are already giving the correct outputs;<br>
