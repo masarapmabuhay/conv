@@ -91,7 +91,7 @@ TODO: -add: PEMDAS
 TODO: -reverify: with other example cases, e.g. `2×(1-(1+2×6))`<br/>
 TODO: -add: `3(5)` which is equal to `3×5`<br/>  
 				
-13. 20260510 (CURRENT); http://store.usbong.ph/server/calc/index.html<br/>
+13. 20260510 (CURRENT); http://store.usbong.ph/server/calc/index.html20260510<br/>
 +reverted: to version 20260505 with updates such as:<br>
 +updated: to allow only one operator; due to `9/3*2`; error where `9/(3*2)` is done instead of `(9/3)*2`<br/>
 +fixed: `3*3-B3=` results to error; by changing `B` to `C` ("Clear") to prevent the user from pressing backspace; other cases such as `3*3-=` are already giving the correct outputs;<br>
@@ -104,16 +104,25 @@ TODO: -add: `3(5)` which is equal to `3×5`<br/>
 		<br/>
 		This is what I've been able to accomplish in two weeks using my available free time.<br/>
 		<br/>
-		http://store.usbong.ph/server/calc/index.html
+		http://store.usbong.ph/server/calc/index20260510.html
 		</h3>
 	</td>
   </tr>
 </table>
 
-14. TODO BONUS:<br/> 
+# NEW CALC PLUS
 
-TODO: -add: processing of parentheses
-		
+14. 20260512 (CURRENT); http://store.usbong.ph/server/calc/index.html<br/>
++added: auto-scaled user-interface based on whether user's device is mobile or not;<br/>
+TODO: -fix: display issues, e.g. equals button (absolute position), on iPad<br/>
+TODO: -fix: `280/(1.12)` and `60*0.12` resulting to non-whole number due to approximated value caused by computer's basic characteristic of using binary representations; solution says Google AI Overview is: Integer "Cents" Trick; however, parameter `2` in `toFixed(2)` should be auto-adjusted based on the number of places after the decimal point<br/>
+TODO: -fix: max digits reached resulting to an incorrect answer displayed<br/>
+TODO: -add: processing of parentheses<br/>
+
+<img src="https://github.com/usbong/calc/blob/main/screenshots/calcScreenshotV20260512T1426.png" width="60%">
+
+<img src="https://github.com/usbong/calc/blob/main/screenshots/calcScreenshotMobileV20260512T1430.jpg" width="30%">
+
 # Get PhilNITS Certified!
 
 https://philnits.org/
