@@ -11,7 +11,7 @@
 ' @company: USBONG
 ' @author: SYSON, MICHAEL B.
 ' @date created: 20221214
-' @date updated: 20260510; from 20260505
+' @date updated: 20260513; from 20260512
 ' @website: www.usbong.ph
 '
 ' References: 
@@ -38,8 +38,8 @@
             font-family: Arial;
 			font-size: 11pt;
 
-			width: 100%;
-			height: 100%;
+			width: 50%;
+			height: 50%;
 
 			background-color: black; /*white; transparent*/
 			border: none;
@@ -51,8 +51,9 @@
 			-ms-user-select: none; /* IE 10 and IE 11 */
 			user-select: none; /* Standard syntax */
 
-			/* added by Mike, 20221012 */
-			transform: scale(1.0);
+			/* added by Mike, 20260512; from 20221012 */
+			transform: scale(2.0);
+			transform-origin: top left;
 
 			/* added by Mike, 20221119 */
 			touch-action: none;
@@ -67,7 +68,7 @@
 
 			width: 640px;
 			height: 360px;
-
+			
 			visibility: hidden;
 
 			border: 0px;
@@ -182,6 +183,20 @@
 	function onLoad() {
 		var answerInput = document.getElementById("answerInputId");
 		answerInput.value="";
+		
+		//alert(navigator.userAgent);
+				
+		if (/Mobile|Android|webOS|iPhone|iPad|iPod|AppleWebKit|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+
+			//alert("detected: Mobile Browser!");
+			bIsMobile=true;
+		}
+		else {
+			//alert("NOT MOBILE!!");
+
+			document.body.style.transform = "scale(0.8)";
+		}
+		
 	}
 	
 	function isOperator(sInput) {
@@ -534,6 +549,17 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 		arrayOperandTemp = [];
 	}
 	
+	//added by Mike, 20260513
+	function getPlacesAfterDecimalPoint(fInput) {
+		sInput = fInput.toString();
+		
+		if (sInput.includes(".")) {
+			return sInput.substring(sInput.indexOf(".")+1).length;
+		}
+		
+		return 0;
+	}
+	
 	function inputOperator(sOperator) {
 		var answerInput = document.getElementById("answerInputId");
 		var backspaceButton = document.getElementById("backspaceButtonId");
@@ -744,9 +770,25 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 					arrayOperator.push("+");
 				}
 
+				//edited by Mike, 20260513; from 20260512
 				fAnswer = parseFloat(operandOne)*parseFloat(operandTwo);
-				//alert(fAnswer);
+
+/*
+				//check: how many decimal places after the decimal point; 
+				//therefore, 1.12 should be multiplied by 100
+				//1.123 should be multiplied by 1000
+				fAnswer = (operandOne*100)*(operandTwo*100);
+				fAnswer = (fAnswer/10000);
+*/
+				//alert("HALLO!"+getPlacesAfterDecimalPoint(fAnswer));
+				var iPlacesAfterDecimalPoint = getPlacesAfterDecimalPoint(fAnswer);
+				var iPowerOfTen = 10 ** iPlacesAfterDecimalPoint;
+
+				fAnswer = (operandOne*iPowerOfTen)*(operandTwo*iPowerOfTen);
+				fAnswer = (fAnswer/(iPowerOfTen*iPowerOfTen));
 				
+				//alert(fAnswer);
+
 				sAnswer = fAnswer.toString();
 				
 				//alert("fAnswer: "+fAnswer);
@@ -914,7 +956,31 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 
 				//note order of operands; reversed;
 				//fAnswer = parseFloat(operandOne)/parseFloat(operandTwo);
-				fAnswer = parseFloat(operandTwo)/parseFloat(operandOne);
+
+				//edited by Mike, 20260513; from 20260512
+				//fAnswer = parseFloat(operandTwo)/parseFloat(operandOne);
+
+				//AI Overview
+				//The Integer "Cents" Trick
+				//TODO: -check: how many decimal places after the decimal point; 
+				//fAnswer = (operandTwo*100).toFixed(2)/(operandOne*100).toFixed(2);
+				//fAnswer = Math.round((operandTwo*100)/(operandOne*100));
+				
+				//note 1.12*100 becomes 112.00000000000001 
+				//alert(operandOne*100);
+
+				//alert("HALLO!"+getPlacesAfterDecimalPoint(fAnswer));
+				var iPlacesAfterDecimalPoint = getPlacesAfterDecimalPoint(fAnswer);
+				var iPowerOfTen = 10 ** iPlacesAfterDecimalPoint;
+
+				fAnswer = parseFloat(operandTwo*iPowerOfTen)/parseFloat(operandOne*iPowerOfTen);
+
+				fAnswer = (operandOne*iPowerOfTen)*(operandTwo*iPowerOfTen);
+				fAnswer = (fAnswer/(iPowerOfTen*iPowerOfTen));
+				
+				//alert(fAnswer);
+
+				
 				sAnswer = fAnswer.toString();
 				sCurrOperand=sAnswer;
 				arrayOperand.push(sCurrOperand);
@@ -988,6 +1054,7 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 				if (sAnswer.length>10) {
 					//11 digits including the decimal point
 					sAnswer=sAnswer.substring(0,11); 
+
 					//alert(">>HERE: "+answerInput.value);
 				}
 			}
