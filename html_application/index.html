@@ -11,7 +11,7 @@
 ' @company: USBONG
 ' @author: SYSON, MICHAEL B.
 ' @date created: 20221214
-' @date updated: 20260513; from 20260512
+' @date updated: 20260514; from 20260513
 ' @website: www.usbong.ph
 '
 ' References: 
@@ -24,6 +24,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+	<link rel="icon" type="image/x-icon" href="./assets/images/calcfavicon.png">
   </head>
 
   <title>
@@ -92,17 +93,27 @@
 
 		button.buttonBackspace
 		{
+			text-align: center;
+			-webkit-appearance: none;
+			appearance: none;
+			border-radius: 5px;		
+			border: 1px solid #ccc;
+			color: black;
+			
+			float: right;
 			position: absolute;
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
   		
-			width: 42px;
+			width: 4.2em; /*40px;*/
 			height: 40px;
 
 			padding-top: 4px;
 			padding-bottom: 4px;
-			
+			padding-right: 0px;
+			padding-left: 0px;
+
 			margin-top: 2px;
 			margin-bottom: 4px;
 
@@ -113,13 +124,23 @@
 
 		button.buttonDefault
 		{
-			width: 40px;
+			text-align: center;
+			-webkit-appearance: none;
+			appearance: none;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			color: black;
+
+			width: 1.8em; /*40px;*/
 			height: 40px;
 
 			column-count: 1;
 			padding-top: 4px;
 			padding-bottom: 4px;
+			padding-right: 0px;
+			padding-left: 0px;
 
+			margin-left: 0.05em; /* 0.15em;*/
 			margin-top: 2px;
 			margin-bottom: 4px;
 
@@ -130,13 +151,23 @@
 		
 		button.buttonZero
 		{
-			width: 84px;
+			text-align: center;
+			-webkit-appearance: none;
+			appearance: none;
+			border-radius: 5px;		
+			border: 1px solid #ccc;
+			color: black;
+
+			width: 3.8em; /*84px;*/
 			height: 40px;
 
 			column-count: 1;
 			padding-top: 4px;
 			padding-bottom: 4px;
-			
+			padding-right: 0px;
+			padding-left: 0px;
+
+			margin-left: 0.05em; /* 0.15em;*/
 			margin-top: 2px;
 			margin-bottom: 4px;
 
@@ -147,20 +178,31 @@
 
 		button.buttonEquals
 		{
+			text-align: center;
+			-webkit-appearance: none;
+			appearance: none;
+			border-radius: 5px;		
+			border: 1px solid #ccc;
+			color: black;
+			
+			float: right;
 			position: absolute;
 			top: 136px;
-			left: 176px; /* 4*40+4*4 */
+			left: 8.15em; /*176px; 4*40+4*4 */
+			
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
   
-			width: 40px;
+			width: 1.8em; /*40px;*/
 			height: 86px;
 
 			column-count: 1;
 			padding-top: 4px;
 			padding-bottom: 4px;
-			
+			padding-right: 0px;
+			padding-left: 0px;
+
 			margin-top: 4px;
 			margin-bottom: 4px;
 
@@ -189,7 +231,21 @@
 		if (/Mobile|Android|webOS|iPhone|iPad|iPod|AppleWebKit|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 
 			//alert("detected: Mobile Browser!");
+			
 			bIsMobile=true;
+
+			//added by Mike, 20260514
+			if ((navigator.userAgent.includes("Macintosh")) || navigator.userAgent.includes("Mac")) {
+				var buttonEqualsButton = document.getElementById("buttonEqualsId");
+			
+				document.body.style.transform = "scale(1.4)";
+				document.body.style.width = "70%";
+				document.body.style.height = "70%";
+				
+				//buttonEqualsButton.style.left=(parseInt(buttonEqualsButton.style.left)+100)+"px";
+				//buttonEqualsButton.style.left = "210px";
+			}
+
 		}
 		else {
 			//alert("NOT MOBILE!!");
@@ -232,9 +288,9 @@
 		var backspaceButton = document.getElementById("backspaceButtonId");
 		
 		//added by Mike, 20260430
-		if (backspaceButton.innerHTML.includes("Clear")) {
+		if (backspaceButton.innerHTML.includes("CLEAR")) {
 			reset();
-			backspaceButton.innerHTML = "Back<br/>Space";
+			backspaceButton.innerHTML = "BACK<br/>SPACE"; //"BACK<br/>SPACE";
 		}
 		//added by Mike, 20260501
 		else {
@@ -482,9 +538,9 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 		var backspaceButton = document.getElementById("backspaceButtonId");
 		
 		//added by Mike, 20260430
-		if (backspaceButton.innerHTML.includes("Clear")) {
+		if (backspaceButton.innerHTML.includes("CLEAR")) {
 			//reset();
-			backspaceButton.innerHTML = "Back<br/>Space";
+			backspaceButton.innerHTML = "BACK<br/>SPACE";
 /*			
 			//added by Mike, 20260430
 			if (answerInput.value=="0") {
@@ -565,9 +621,9 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 		var backspaceButton = document.getElementById("backspaceButtonId");
 		
 		//added by Mike, 20260430
-		if (backspaceButton.innerHTML.includes("Clear")) {
+		if (backspaceButton.innerHTML.includes("CLEAR")) {
 			//reset();
-			backspaceButton.innerHTML = "Back<br/>Space";
+			backspaceButton.innerHTML = "BACK<br/>SPACE";
 		}
 
 		//alert(sOperator);
@@ -697,7 +753,7 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 							//arrayOperand.push(parseFloat(sCurrOperand));
 							//although it's only needed if the user presses backspace
 
-							backspaceButton.innerHTML = "Clear";							
+							backspaceButton.innerHTML = "CLEAR";							
 							
 							//sCurrOperand=arrayOperand.at(-1);
 /*
@@ -957,26 +1013,44 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 				//note order of operands; reversed;
 				//fAnswer = parseFloat(operandOne)/parseFloat(operandTwo);
 
-				//edited by Mike, 20260513; from 20260512
+				//edited by Mike, 20260514; from 20260513
 				//fAnswer = parseFloat(operandTwo)/parseFloat(operandOne);
 
 				//AI Overview
 				//The Integer "Cents" Trick
-				//TODO: -check: how many decimal places after the decimal point; 
+				//check: how many decimal places after the decimal point; 
 				//fAnswer = (operandTwo*100).toFixed(2)/(operandOne*100).toFixed(2);
 				//fAnswer = Math.round((operandTwo*100)/(operandOne*100));
 				
 				//note 1.12*100 becomes 112.00000000000001 
 				//alert(operandOne*100);
 
-				//alert("HALLO!"+getPlacesAfterDecimalPoint(fAnswer));
-				var iPlacesAfterDecimalPoint = getPlacesAfterDecimalPoint(fAnswer);
+				//alert("HALLO!"+getPlacesAfterDecimalPoint(operandTwo));
+				//alert("HALLO!"+getPlacesAfterDecimalPoint(operandOne));
+				
+				var iPlacesAfterDecimalPointOperandOne = getPlacesAfterDecimalPoint(operandOne);
+				var iPlacesAfterDecimalPointOperandTwo = getPlacesAfterDecimalPoint(operandTwo);
+				
+				if (iPlacesAfterDecimalPointOperandOne>iPlacesAfterDecimalPointOperandTwo) {
+					iPlacesAfterDecimalPoint = iPlacesAfterDecimalPointOperandOne;
+				}
+				else {
+					iPlacesAfterDecimalPoint = iPlacesAfterDecimalPointOperandTwo;
+				}
+
+				//alert("HALLO!"+iPlacesAfterDecimalPoint);
+				
+				//var iPlacesAfterDecimalPoint = getPlacesAfterDecimalPoint(fAnswer);
 				var iPowerOfTen = 10 ** iPlacesAfterDecimalPoint;
 
-				fAnswer = parseFloat(operandTwo*iPowerOfTen)/parseFloat(operandOne*iPowerOfTen);
+				//alert("iPowerOfTen!"+iPowerOfTen);
 
-				fAnswer = (operandOne*iPowerOfTen)*(operandTwo*iPowerOfTen);
-				fAnswer = (fAnswer/(iPowerOfTen*iPowerOfTen));
+				fAnswer = parseFloat(operandTwo*iPowerOfTen).toFixed(iPlacesAfterDecimalPoint)/parseFloat(operandOne*iPowerOfTen).toFixed(iPlacesAfterDecimalPoint);
+
+				//alert("fAnswer!"+fAnswer);
+
+				//fAnswer = (operandOne*iPowerOfTen)*(operandTwo*iPowerOfTen);
+				//fAnswer = (fAnswer/(iPowerOfTen*iPowerOfTen));
 				
 				//alert(fAnswer);
 
@@ -1065,7 +1139,7 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 			answerInput.value=sAnswer;	
 
 			//added by Mike, 20260430
-			backspaceButton.innerHTML = "Clear";
+			backspaceButton.innerHTML = "CLEAR";
 			
 			//alert("answerInput.value: "+answerInput.value);
 		}
@@ -1152,9 +1226,9 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 		var backspaceButton = document.getElementById("backspaceButtonId");
 		
 		//added by Mike, 20260430
-		if (backspaceButton.innerHTML.includes("Clear")) {
+		if (backspaceButton.innerHTML.includes("CLEAR")) {
 			//reset();
-			backspaceButton.innerHTML = "Back<br/>Space";
+			backspaceButton.innerHTML = "BACK<br/>SPACE";
 		}
 
 		//alert(sOperator);
@@ -1594,7 +1668,7 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 			answerInput.value=sAnswer;	
 
 			//added by Mike, 20260430
-			backspaceButton.innerHTML = "Clear";
+			backspaceButton.innerHTML = "CLEAR";
 			
 			//alert("answerInput.value: "+answerInput.value);
 		}
@@ -1686,7 +1760,7 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 <!--	
 	<button class="buttonBackspace" onclick="backspace()">Back<br/>Space</button>
 -->
-	<button id="backspaceButtonId" class="buttonBackspace" onclick="backspace()">Back<br/>Space</button>
+	<button id="backspaceButtonId" class="buttonBackspace" onclick="backspace()">BACK<br/>SPACE</button>
 	
 	<div>
 		<div>
@@ -1724,7 +1798,7 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 				<button class="buttonZero" onclick="inputDigit(0)">0</button>
 				<button class="buttonDefault" onclick="inputDigit('.')">.</button>
 				<button class="buttonDefault" onclick="inputOperator('+')">+</button>
-				<button class="buttonEquals" onclick="inputOperator('=')">=</button>
+				<button id="buttonEqualsId" class="buttonEquals" onclick="inputOperator('=')">=</button>
 			</div>
 		</div>
 	</div>
