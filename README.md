@@ -112,7 +112,7 @@ TODO: -add: `3(5)` which is equal to `3×5`<br/>
 
 # NEW CALC PLUS
 
-14. 20260512; http://store.usbong.ph/server/calc/index.html<br/>
+14. 20260512;<br/>
 +added: auto-scaled user-interface based on whether user's device is mobile or not;<br/>
 TODO: -fix: display issues, e.g. equals button (absolute position), on iPad<br/>
 TODO: -fix: `280/(1.12)` and `60*0.12` resulting to non-whole number due to approximated value caused by computer's basic characteristic of using binary representations; solution says Google AI Overview is: Integer "Cents" Trick; however, parameter `2` in `toFixed(2)` should be auto-adjusted based on the number of places after the decimal point<br/>
@@ -123,12 +123,25 @@ TODO: -add: processing of parentheses<br/>
 
 <img src="https://github.com/usbong/calc/blob/main/screenshots/calcScreenshotMobileV20260512T1430.jpg" width="30%">
 
-15. 20260513; http://store.usbong.ph/server/calc/index.html<br/>
+15. 20260513;<br/>
 +fixed: `280/(1.12)` and `60*0.12` resulting to non-whole number;<br/> 
 +added: a function to auto-count how many places there are after the decimal point; the count is used as parameter to `toFixed(...)`<br/>
 
-TODO: -fix: display issues, e.g. equals button (absolute position), on iPad<br/>
-TODO: -fix: max digits reached resulting to an incorrect answer displayed<br/>
+16. 20260514 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/>
++fixed: incorrect output when doing division; 280/(1.12) now outputs the correct answer;<br/>
++noted: without using scientific notations like exponents, there's no way to get a result greater than 999,999,999,999 (12 digits) using at most 12 digits summing the number of digits that the two operands have;<br/>
++fixed: display issues, e.g. equals button (absolute position), on iPad<br/>
++noted: padding-right and padding-left have to be set to 0 to fix display issues on iPad; also used "em" instead of "px" for certain button fields;<br/>
++updated: "BackSpace" to "BACKSPACE";<br/>
++updated: "Clear" to "CLEAR";<br/>
++added: browser tab icon<br/>
+
+<img src="https://github.com/usbong/calc/blob/main/screenshots/calcScreenshotIpadMobileLandscapeResizedV20260514T1333.png" width="50%">
+
+<img src="https://github.com/usbong/calc/blob/main/screenshots/calcScreenshotIpadMobilePortraitResizedV20260514T1333.png" width="30%">
+
+
+
 TODO: -add: processing of parentheses<br/>
 
 # Get PhilNITS Certified!
