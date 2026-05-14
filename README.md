@@ -128,10 +128,10 @@ TODO: -add: processing of parentheses<br/>
 +added: a function to auto-count how many places there are after the decimal point; the count is used as parameter to `toFixed(...)`<br/>
 
 16. 20260514 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/>
-+fixed: incorrect output when doing division; 280/(1.12) now outputs the correct answer;<br/>
-+noted: without using scientific notations like exponents, there's no way to get a result greater than 999,999,999,999 (12 digits) using at most 12 digits summing the number of digits that the two operands have;<br/>
++fixed: incorrect output when doing division; `280/(1.12)` now outputs the correct answer;<br/>
++noted: without using scientific notations like exponents, there's no way to get a result greater than `999,999,999,999` (12 digits) using at most 12 digits summing the number of digits that the two operands have;<br/>
 +fixed: display issues, e.g. equals button (absolute position), on iPad<br/>
-+noted: padding-right and padding-left have to be set to 0 to fix display issues on iPad; also used "em" instead of "px" for certain button fields;<br/>
++noted: padding-right and padding-left have to be set to `0` to fix display issues on iPad; also used "em" instead of "px" for certain button fields;<br/>
 +updated: "BackSpace" to "BACKSPACE";<br/>
 +updated: "Clear" to "CLEAR";<br/>
 +added: browser tab icon<br/>
