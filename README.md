@@ -145,6 +145,7 @@ TODO: -add: processing of parentheses<br/>
 +updated: to identify if user is using an iPad or MacBook, and adjust the browser width or height available for use accordingly; <br/>
 +added: keyboard inputs (keys near numlock or top of keyboard)<br/>
 +added: when "=" is pressed, and "CLEAR" button is activated, perform reset();<br/>
++updated: calc fav icon to use the transparent/alpha color;<br/>
 TODO: -add: processing of parentheses<br/>
 
 # Get PhilNITS Certified!
