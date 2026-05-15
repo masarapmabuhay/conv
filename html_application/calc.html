@@ -11,7 +11,7 @@
 ' @company: USBONG
 ' @author: SYSON, MICHAEL B.
 ' @date created: 20221214
-' @date updated: 20260514; from 20260513
+' @date updated: 20260515; from 20260514
 ' @website: www.usbong.ph
 '
 ' References: 
@@ -38,7 +38,7 @@
         {
             font-family: Arial;
 			font-size: 11pt;
-
+			
 			width: 50%;
 			height: 50%;
 
@@ -47,7 +47,7 @@
 
 			padding: 0;
 			margin: 0;
-
+			
 			-webkit-user-select: none; /* Safari */
 			-ms-user-select: none; /* IE 10 and IE 11 */
 			user-select: none; /* Standard syntax */
@@ -234,26 +234,101 @@
 			
 			bIsMobile=true;
 
-			//added by Mike, 20260514
+			//edited by Mike, 20260515; from 20260514
 			if ((navigator.userAgent.includes("Macintosh")) || navigator.userAgent.includes("Mac")) {
 				var buttonEqualsButton = document.getElementById("buttonEqualsId");
 			
-				document.body.style.transform = "scale(1.4)";
-				document.body.style.width = "70%";
-				document.body.style.height = "70%";
-				
-				//buttonEqualsButton.style.left=(parseInt(buttonEqualsButton.style.left)+100)+"px";
-				//buttonEqualsButton.style.left = "210px";
+				//isIpad via the number of touch points;
+				if (navigator.maxTouchPoints > 1) {
+					document.body.style.transform = "scale(1.4)";
+					document.body.style.width = "70%";
+					document.body.style.height = "70%";
+					
+					//reference; Google AI Overview
+					//push elements to the right
+					document.body.style.marginLeft = "auto";
+					document.body.style.marginRight = "0";
+				}
+				else {
+					document.body.style.transform = "scale(0.8)";
+					
+					document.body.style.width = "100%";
+					document.body.style.height = "100%";
+				}
 			}
-
 		}
 		else {
 			//alert("NOT MOBILE!!");
-
 			document.body.style.transform = "scale(0.8)";
+			
+			document.body.style.width = "100%";
+			document.body.style.height = "100%";
 		}
 		
+		//added by Mike, 20260515
+		initKeyboardInput();
 	}
+	
+	//added by Mike, 20260515
+	function initKeyboardInput() {
+	
+		document.body.onkeydown = function(e) {
+			//alert("e.keyCode: "+e.keyCode);
+
+			if ((e.keyCode==103) || (e.keyCode==55)) { //key 7 (near numlock or top)
+				document.getElementById("buttonSevenId").click();
+			}
+			else if ((e.keyCode==104) || (e.keyCode==56)) { //key 8 (near numlock or top)
+				document.getElementById("buttonEightId").click();
+			}
+			else if ((e.keyCode==105) || (e.keyCode==57)) { //key 9 (near numlock or top)
+				document.getElementById("buttonNineId").click();
+			}
+			else if ((e.keyCode==100) || (e.keyCode==52)) { //key 4 (near numlock or top)
+				document.getElementById("buttonFourId").click();
+			}
+			else if ((e.keyCode==101) || (e.keyCode==53)) { //key 5 (near numlock or top)
+				document.getElementById("buttonFiveId").click();
+			}
+			else if ((e.keyCode==102) || (e.keyCode==54)) { //key 6 (near numlock or top)
+				document.getElementById("buttonSixId").click();
+			}
+			else if ((e.keyCode==97) || (e.keyCode==49)) { //key 1 (near numlock or top)
+				document.getElementById("buttonOneId").click();
+			}
+			else if ((e.keyCode==98) || (e.keyCode==50)) { //key 2 (near numlock or top)
+				document.getElementById("buttonTwoId").click();
+			}
+			else if ((e.keyCode==99) || (e.keyCode==51)) { //key 3 (near numlock or top)
+				document.getElementById("buttonThreeId").click();
+			}
+			else if ((e.keyCode==96) || (e.keyCode==48)) { //key 0 (near numlock or top)
+				document.getElementById("buttonZeroId").click();
+			}
+			else if (e.keyCode==8) { //key Backspace
+				document.getElementById("backspaceButtonId").click();
+			}
+			else if (e.keyCode==107) { //key PLUS
+				document.getElementById("buttonPlusId").click();
+			}
+			else if (e.keyCode==106) { //key MULTIPLY
+				document.getElementById("buttonMultiplyId").click();
+			}
+			else if (e.keyCode==109) { //key MINUS
+				document.getElementById("buttonMinusId").click();
+			}
+			else if (e.keyCode==111) { //key DIVIDE
+				document.getElementById("buttonDivideId").click();
+			}
+			else if (e.keyCode==13) { //key Enter (same for either near numlock or top)
+				document.getElementById("buttonEqualsId").click();
+			}
+		};
+
+		document.body.onkeyup = function(e) {
+			//alert("KEYUP; e.keyCode: "+e.keyCode);
+		};
+	}	
 	
 	function isOperator(sInput) {
 		//alert ("HERE!!: "+sInput);
@@ -622,8 +697,14 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 		
 		//added by Mike, 20260430
 		if (backspaceButton.innerHTML.includes("CLEAR")) {
-			//reset();
+			
 			backspaceButton.innerHTML = "BACK<br/>SPACE";
+
+			//added by Mike, 20260515
+			if (sOperator.at(-1)=="=") {
+				reset();
+				return;
+			}
 		}
 
 		//alert(sOperator);
@@ -1765,10 +1846,10 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 	<div>
 		<div>
 			<div>
-				<button class="buttonDefault" onclick="inputDigit(7)">7</button>
-				<button class="buttonDefault" onclick="inputDigit(8)">8</button>
-				<button class="buttonDefault" onclick="inputDigit(9)">9</button>
-				<button class="buttonDefault" onclick="inputOperator('÷')">÷</button>
+				<button id="buttonSevenId" class="buttonDefault" onclick="inputDigit(7)">7</button>
+				<button id="buttonEightId" class="buttonDefault" onclick="inputDigit(8)">8</button>
+				<button id="buttonNineId" class="buttonDefault" onclick="inputDigit(9)">9</button>
+				<button id="buttonDivideId" class="buttonDefault" onclick="inputOperator('÷')">÷</button>
 <!--				
 				<button class="buttonDefault" onclick="/*inputOperator('(')*/">(</button>
 -->
@@ -1777,10 +1858,10 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 -->
 			</div>
 			<div>
-				<button class="buttonDefault" onclick="inputDigit(4)">4</button>
-				<button class="buttonDefault" onclick="inputDigit(5)">5</button>
-				<button class="buttonDefault" onclick="inputDigit(6)">6</button>
-				<button class="buttonDefault" onclick="inputOperator('×')">×</button>
+				<button id="buttonFourId" class="buttonDefault" onclick="inputDigit(4)">4</button>
+				<button id="buttonFiveId" class="buttonDefault" onclick="inputDigit(5)">5</button>
+				<button id="buttonSixId" class="buttonDefault" onclick="inputDigit(6)">6</button>
+				<button id="buttonMultiplyId" class="buttonDefault" onclick="inputOperator('×')">×</button>
 <!--				
 				<button class="buttonDefault" onclick="/*inputOperator(')')*/">)</button>
 <!--				
@@ -1789,16 +1870,16 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 
 			</div>
 			<div>
-				<button class="buttonDefault" onclick="inputDigit(1)">1</button>
-				<button class="buttonDefault" onclick="inputDigit(2)">2</button>
-				<button class="buttonDefault" onclick="inputDigit(3)">3</button>
-				<button class="buttonDefault" onclick="inputOperator('-')">-</button>
+				<button id="buttonOneId" class="buttonDefault" onclick="inputDigit(1)">1</button>
+				<button id="buttonTwoId" class="buttonDefault" onclick="inputDigit(2)">2</button>
+				<button id="buttonThreeId" class="buttonDefault" onclick="inputDigit(3)">3</button>
+				<button id="buttonMinusId" class="buttonDefault" onclick="inputOperator('-')">-</button>
 			</div>
 			<div>
-				<button class="buttonZero" onclick="inputDigit(0)">0</button>
-				<button class="buttonDefault" onclick="inputDigit('.')">.</button>
-				<button class="buttonDefault" onclick="inputOperator('+')">+</button>
-				<button id="buttonEqualsId" class="buttonEquals" onclick="inputOperator('=')">=</button>
+				<button id="buttonZeroId" class="buttonZero" onclick="inputDigit(0)">0</button>
+				<button id="buttonDotId" class="buttonDefault" onclick="inputDigit('.')">.</button>
+				<button id="buttonPlusId" class="buttonDefault" onclick="inputOperator('+')">+</button>
+				<button id="buttonEqualsId" id="buttonEqualsId" class="buttonEquals" onclick="inputOperator('=')">=</button>
 			</div>
 		</div>
 	</div>
