@@ -52,7 +52,7 @@ TODO: -add: PEMDAS
 
 <img src="https://github.com/usbong/calc/blob/main/plan/pemdasPlan20260504.jpg" width="60%">
 
-8. 20260505; http://store.usbong.ph/server/calc/index.html20260505<br/>
+8. 20260505; http://store.usbong.ph/server/calc/index20260505.html<br/>
 +added: PEMDAS without yet the parenthesis<br/>
 +tested: to output the correct answer with the following:<br/>
 `6*2+1=13`<br/>
@@ -62,25 +62,25 @@ TODO: -add: PEMDAS
 `1*3/6=0.5`<br/>
 `2*5/3=3.333333333`<br/>
 
-9. 20260506; http://store.usbong.ph/server/calc/index20260510-BUGGY.html<br/>
+9. 20260506; BUGGY<br/>
 +added: work-in-progress function to process the parentheses with code for debugging purposes
 
 <img src="https://github.com/usbong/calc/blob/main/plan/pemdasPlanParenthesis20260506.jpg" width="60%">
 
-10. 20260507; http://store.usbong.ph/server/calc/index.html<br/>
+10. 20260507; BUGGY<br/>
 +updated: work-in-progress function to process the parentheses with code for debugging purposes; can now prepare the input to be processed<br/> 
 **Example:**<br/> 
 **input:** `2*(1-(1+2*6))`<br/>
 **output:** `1+2*6`
 
-11. 20260508; http://store.usbong.ph/server/calc/index20260510-BUGGY.html<br/>
+11. 20260508; BUGGY<br/>
 +updated: function to process the parentheses; can now output correctly given the input; though not yet integrated with the rest of the code<br/> 
 **Example:**<br/> 
 **input:** `2×(1-(1+2×6))`<br/> 
 **process:** `2×(1-A)`<br/>
 **output:** `2×(1-13)`<br/>
 
-12. 20260509; http://store.usbong.ph/server/calc/index20260510-BUGGY.html<br/>
+12. 20260509; BUGGY<br/>
 +updated: function to process the parentheses; gradually getting integrated with the rest of the code;<br/>
 +noted: opted to add code that reads the input as a string of characters, which is auto-processed, identifying which are operands and which are operators, while storing them in the correct sequence;<br/>
 +noted: right now, the first set inside the parentheses from the right has to be manually identified and then put into `arrayOperator` and `arrayOperand`<br/>
@@ -91,7 +91,7 @@ TODO: -add: PEMDAS
 TODO: -reverify: with other example cases, e.g. `2×(1-(1+2×6))`<br/>
 TODO: -add: `3(5)` which is equal to `3×5`<br/>  
 				
-13. 20260510; http://store.usbong.ph/server/calc/index.html20260510<br/>
+13. 20260510; http://store.usbong.ph/server/calc/index20260510.html<br/>
 +reverted: to version 20260505 with updates such as:<br>
 +updated: to allow only one operator; due to `9/3*2`; error where `9/(3*2)` is done instead of `(9/3)*2`<br/>
 +fixed: `3*3-B3=` results to error; by changing `B` to `C` ("Clear") to prevent the user from pressing backspace; other cases such as `3*3-=` are already giving the correct outputs;<br>
@@ -112,7 +112,7 @@ TODO: -add: `3(5)` which is equal to `3×5`<br/>
 
 # NEW CALC PLUS
 
-14. 20260512;<br/>
+14. 20260512; BUGGY<br/>
 +added: auto-scaled user-interface based on whether user's device is mobile or not;<br/>
 TODO: -fix: display issues, e.g. equals button (absolute position), on iPad<br/>
 TODO: -fix: `280/(1.12)` and `60*0.12` resulting to non-whole number due to approximated value caused by computer's basic characteristic of using binary representations; solution says Google AI Overview is: Integer "Cents" Trick; however, parameter `2` in `toFixed(2)` should be auto-adjusted based on the number of places after the decimal point<br/>
@@ -123,11 +123,11 @@ TODO: -add: processing of parentheses<br/>
 
 <img src="https://github.com/usbong/calc/blob/main/screenshots/calcScreenshotMobileV20260512T1430.jpg" width="30%">
 
-15. 20260513;<br/>
+15. 20260513; http://store.usbong.ph/server/calc/calc20260513.html<br/>
 +fixed: `280/(1.12)` and `60*0.12` resulting to non-whole number;<br/> 
 +added: a function to auto-count how many places there are after the decimal point; the count is used as parameter to `toFixed(...)`<br/>
 
-16. 20260514 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/>
+16. 20260514; http://store.usbong.ph/server/calc/calc20260514.html<br/>
 +fixed: incorrect output when doing division; `280/(1.12)` now outputs the correct answer;<br/>
 +noted: without using scientific notations like exponents, there's no way to get a result greater than `999,999,999,999` (12 digits) using at most 12 digits summing the number of digits that the two operands have;<br/>
 +fixed: display issues, e.g. equals button (absolute position), on iPad<br/>
@@ -140,8 +140,11 @@ TODO: -add: processing of parentheses<br/>
 
 <img src="https://github.com/usbong/calc/blob/main/screenshots/calcScreenshotIpadMobilePortraitResizedV20260514T1333.png" width="30%">
 
-
-
+17. 20260515 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/>
++updated: to use max available browser width and height if the user is using non-mobile or desktop;<br/>
++updated: to identify if user is using an iPad or MacBook, and adjust the browser width or height available for use accordingly; <br/>
++added: keyboard inputs (keys near numlock or top of keyboard)<br/>
++added: when "=" is pressed, and "CLEAR" button is activated, perform reset();<br/>
 TODO: -add: processing of parentheses<br/>
 
 # Get PhilNITS Certified!
