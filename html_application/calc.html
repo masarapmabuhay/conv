@@ -304,7 +304,9 @@
 			else if ((bIsShiftKeyPressed) && (e.keyCode==61)) { //key SHIFT and +
 				document.getElementById("buttonPlusId").click();
 			}
-			else if ((bIsShiftKeyPressed) && (e.keyCode==173)) { //key SHIFT and -
+			//edited by Mike, 20260516
+			//else if ((bIsShiftKeyPressed) && (e.keyCode==173)) { //key SHIFT and -
+			else if (e.keyCode==173) { //key - (near top of keyboard)
 				document.getElementById("buttonMinusId").click();
 			}
 			//put this here, before checking only "e.keyCode==56"
