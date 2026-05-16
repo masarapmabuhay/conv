@@ -158,7 +158,9 @@ instead of:<br/>
 +noted: focusing on creating a "solid" app rather than a buggy one by adding more extra features, e.g. processing of parentheses;<br/>
 +added: ESCAPE key to do a `reset()`;<br/>
 +updated: max digits to be `14` instead of `12`; though equals sign is allowed to be pressed as the 15th input<br/>
-+increased: length of `AnswerInput`'s display to show no partly drawn characters
++increased: length of `AnswerInput`'s display to show no partly drawn characters<br/>
++fixed: width too long for standard Android via changing it from `260px` to `240px`<br/>
++updated: equals sign function to continue to process operation even when the BACKSPACE button displays "CLEAR" when there's an operator in `answerInput`
 
 # Get PhilNITS Certified!
 
