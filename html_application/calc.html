@@ -261,6 +261,10 @@
 					document.body.style.height = "100%";
 				}
 			}
+			//Android mobile
+			else {
+				answerInput.style.width = "240px";
+			}
 		}
 		else {
 			//alert("NOT MOBILE!!");
@@ -370,6 +374,7 @@
 		};
 	}	
 	
+	//TODO: -update: this
 	function isOperator(sInput) {
 		//alert ("HERE!!: "+sInput);
 
@@ -397,7 +402,34 @@
 		return false;	
 	}
 	
-	//TODO: -update: this
+	//added by Mike, 20260516
+	function hasOperator(sInput) {
+		//alert ("HERE!!: "+sInput);
+
+		if (sInput.includes("×")) { //*
+			return true;	
+		}
+		else if (sInput.includes("+")) {
+			return true;	
+		}
+		else if (sInput.includes("-")) {
+			return true;	
+		}
+		else if (sInput.includes("÷")) { ///
+			return true;	
+		}
+		else if (sInput.includes("(")) {
+			return true;	
+		}
+		else if (sInput.includes(")")) {
+			return true;	
+		}
+
+		//alert("END!!");
+		
+		return false;	
+	}
+	
 	function backspace() {
 		var answerInput = document.getElementById("answerInputId");
 		var backspaceButton = document.getElementById("backspaceButtonId");
@@ -756,11 +788,14 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 			
 			backspaceButton.innerHTML = "BACK<br/>SPACE";
 
+
 			//edited by Mike, 20260516; from 20260515
 			//if (sOperator.at(-1)=="=") {
 			if (sOperator=="=") {
-				reset();
-				return;
+				if (!hasOperator(arrayOperator)) {
+					reset();
+					return;
+				}
 			}
 		}
 		
