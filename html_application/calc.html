@@ -11,7 +11,7 @@
 ' @company: USBONG
 ' @author: SYSON, MICHAEL B.
 ' @date created: 20221214
-' @date updated: 20260515; from 20260514
+' @date updated: 20260516; from 20260515
 ' @website: www.usbong.ph
 '
 ' References: 
@@ -270,13 +270,33 @@
 		initKeyboardInput();
 	}
 	
+	//added by Mike, 20260516
+	function setFocusToAnswerInputText() {
+		var answerInput = document.getElementById("answerInputId");
+		answerInput.focus();
+	}
+	
 	//added by Mike, 20260515
 	function initKeyboardInput() {
-	
+		var bIsShiftKeyPressed = false;
+		
 		document.body.onkeydown = function(e) {
 			//alert("e.keyCode: "+e.keyCode);
 
-			if ((e.keyCode==103) || (e.keyCode==55)) { //key 7 (near numlock or top)
+			if ((!bIsShiftKeyPressed) && (e.keyCode==61)) { //key = without SHIFT
+				document.getElementById("buttonEqualsId").click();
+			}
+			else if ((bIsShiftKeyPressed) && (e.keyCode==61)) { //key SHIFT and +
+				document.getElementById("buttonPlusId").click();
+			}
+			else if ((bIsShiftKeyPressed) && (e.keyCode==173)) { //key SHIFT and -
+				document.getElementById("buttonMinusId").click();
+			}
+			//put this here, before checking only "e.keyCode==56"
+			else if ((bIsShiftKeyPressed) && (e.keyCode==56)) { //key SHIFT and *
+				document.getElementById("buttonMultiplyId").click();
+			}
+			else if ((e.keyCode==103) || (e.keyCode==55)) { //key 7 (near numlock or top)
 				document.getElementById("buttonSevenId").click();
 			}
 			else if ((e.keyCode==104) || (e.keyCode==56)) { //key 8 (near numlock or top)
@@ -321,16 +341,25 @@
 			else if (e.keyCode==109) { //key MINUS
 				document.getElementById("buttonMinusId").click();
 			}
-			else if (e.keyCode==111) { //key DIVIDE
+			//else if (e.keyCode==111) { //key DIVIDE
+			else if ((e.keyCode==111) || (e.keyCode==191)) { //key . (near numlock or bottom)
 				document.getElementById("buttonDivideId").click();
 			}
 			else if (e.keyCode==13) { //key Enter (same for either near numlock or top)
 				document.getElementById("buttonEqualsId").click();
 			}
+			else if (e.keyCode==16) { //key SHIFT
+				bIsShiftKeyPressed = true;
+			}
+
 		};
 
 		document.body.onkeyup = function(e) {
 			//alert("KEYUP; e.keyCode: "+e.keyCode);
+
+			if (e.keyCode==16) { //key SHIFT
+				bIsShiftKeyPressed = false;
+			}
 		};
 	}	
 	
@@ -366,6 +395,9 @@
 		var answerInput = document.getElementById("answerInputId");
 		var backspaceButton = document.getElementById("backspaceButtonId");
 		
+		//added by Mike, 20260516
+		answerInput.focus();
+
 		//added by Mike, 20260430
 		if (backspaceButton.innerHTML.includes("CLEAR")) {
 			reset();
@@ -616,6 +648,9 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 		var answerInput = document.getElementById("answerInputId");
 		var backspaceButton = document.getElementById("backspaceButtonId");
 		
+		//added by Mike, 20260516
+		answerInput.focus();
+		
 		//added by Mike, 20260430
 		if (backspaceButton.innerHTML.includes("CLEAR")) {
 			//reset();
@@ -672,6 +707,9 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 	//added by Mike, 20260429
 	function reset() {
 		var answerInput = document.getElementById("answerInputId");
+		
+		//added by Mike, 20260516
+		answerInput.focus();
 
 		sCurrOperand = "";
 		arrayOperator.pop();
@@ -698,6 +736,9 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 	function inputOperator(sOperator) {
 		var answerInput = document.getElementById("answerInputId");
 		var backspaceButton = document.getElementById("backspaceButtonId");
+		
+		//added by Mike, 20260516
+		answerInput.focus();
 		
 		//added by Mike, 20260430
 		if (backspaceButton.innerHTML.includes("CLEAR")) {
@@ -1836,12 +1877,12 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 	
   </script>
 
-  <body id="myBodyId" onload="onLoad();">
+  <body id="myBodyId" onload="onLoad();" onclick="setFocusToAnswerInputText()">
 <!--
 	<canvas id="myCanvasId" class="myCanvas">
 	</canvas>
 -->
-	<input type="text" id="answerInputId" class="inputAnswer" value="0" min="-99999" max="99999" readonly required>
+	<input type="text" id="answerInputId" class="inputAnswer" value="0" min="-99999" max="99999" autofocus readonly required>
 <!--	
 	<button class="buttonBackspace" onclick="backspace()">Back<br/>Space</button>
 -->
@@ -1854,24 +1895,12 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 				<button id="buttonEightId" class="buttonDefault" onclick="inputDigit(8)">8</button>
 				<button id="buttonNineId" class="buttonDefault" onclick="inputDigit(9)">9</button>
 				<button id="buttonDivideId" class="buttonDefault" onclick="inputOperator('÷')">÷</button>
-<!--				
-				<button class="buttonDefault" onclick="/*inputOperator('(')*/">(</button>
--->
-<!--				
-				<button class="buttonDefault" onclick="">(</button>
--->
 			</div>
 			<div>
 				<button id="buttonFourId" class="buttonDefault" onclick="inputDigit(4)">4</button>
 				<button id="buttonFiveId" class="buttonDefault" onclick="inputDigit(5)">5</button>
 				<button id="buttonSixId" class="buttonDefault" onclick="inputDigit(6)">6</button>
 				<button id="buttonMultiplyId" class="buttonDefault" onclick="inputOperator('×')">×</button>
-<!--				
-				<button class="buttonDefault" onclick="/*inputOperator(')')*/">)</button>
-<!--				
-				<button class="buttonDefault" onclick="">)</button>
--->
-
 			</div>
 			<div>
 				<button id="buttonOneId" class="buttonDefault" onclick="inputDigit(1)">1</button>
