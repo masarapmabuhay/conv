@@ -140,13 +140,22 @@ TODO: -add: processing of parentheses<br/>
 
 <img src="https://github.com/usbong/calc/blob/main/screenshots/calcScreenshotIpadMobilePortraitResizedV20260514T1333.png" width="30%">
 
-17. 20260515 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/>
+17. 20260515; http://store.usbong.ph/server/calc/calc20260515.html<br/>
 +updated: to use max available browser width and height if the user is using non-mobile or desktop;<br/>
 +updated: to identify if user is using an iPad or MacBook, and adjust the browser width or height available for use accordingly; <br/>
 +added: keyboard inputs (keys near numlock or top of keyboard)<br/>
 +added: when "=" is pressed, and "CLEAR" button is activated, perform reset();<br/>
 +updated: calc fav icon to use the transparent/alpha color;<br/>
 TODO: -add: processing of parentheses<br/>
+
+18. 20260516 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/>
++added: auto-focus on the `AnswerInput` so that when `/` is pressed on the keyboard, "Quick find" on Firefox browser isn't opened<br/>
++added: relevant keys other than those near the numlock could be pressed, including those combined with SHIFT down<br/>
++noted: display error when the following is used:<br/>
+`<link rel="icon" type="image/x-icon" href="./assets/images/calcfavicon.png?lastmod=20260516T0953">`<br/>
+instead of:<br/> 
+`<link rel="icon" type="image/x-icon" href="./assets/images/calcfavicon.png">`<br/>
++noted: focusing on creating a "solid" app rather than a buggy one by adding more extra features, e.g. processing of parentheses;
 
 # Get PhilNITS Certified!
 
