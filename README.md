@@ -155,7 +155,10 @@ TODO: -add: processing of parentheses<br/>
 `<link rel="icon" type="image/x-icon" href="./assets/images/calcfavicon.png?lastmod=20260516T0953">`<br/>
 instead of:<br/> 
 `<link rel="icon" type="image/x-icon" href="./assets/images/calcfavicon.png">`<br/>
-+noted: focusing on creating a "solid" app rather than a buggy one by adding more extra features, e.g. processing of parentheses;
++noted: focusing on creating a "solid" app rather than a buggy one by adding more extra features, e.g. processing of parentheses;<br/>
++added: ESCAPE key to do a `reset()`;<br/>
++updated: max digits to be `14` instead of `12`; though equals sign is allowed to be pressed as the 15th input<br/>
++increased: length of `AnswerInput`'s display to show no partly drawn characters
 
 # Get PhilNITS Certified!
 
