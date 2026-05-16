@@ -76,10 +76,14 @@
 
 			z-index: -1;
 		}
-		
+				
 		input.inputAnswer
         {
+/*
 			width: 216px;
+			height: 40px;
+*/
+			width: 260px;
 			height: 40px;
 			
 			margin-top: 2px;
@@ -346,6 +350,9 @@
 				document.getElementById("buttonDivideId").click();
 			}
 			else if (e.keyCode==13) { //key Enter (same for either near numlock or top)
+				document.getElementById("buttonEqualsId").click();
+			}
+			else if (e.keyCode==27) { //key Escape
 				document.getElementById("buttonEqualsId").click();
 			}
 			else if (e.keyCode==16) { //key SHIFT
@@ -691,8 +698,12 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 		//added by Mike, 20260430
 ////		if (answerInput.value.length>10) {
 ////			//max 11 operands and operators including the decimal point 
-		if (answerInput.value.length>12) {
+		//edited by Mike, 20260516
+		//if (answerInput.value.length>12) {
 			//max 13 operands and operators including the decimal point 
+
+		if (answerInput.value.length>14) {
+			//max 15 operands and operators including the decimal point 
 			return;
 		}
 		
@@ -745,9 +756,22 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 			
 			backspaceButton.innerHTML = "BACK<br/>SPACE";
 
-			//added by Mike, 20260515
-			if (sOperator.at(-1)=="=") {
+			//edited by Mike, 20260516; from 20260515
+			//if (sOperator.at(-1)=="=") {
+			if (sOperator=="=") {
 				reset();
+				return;
+			}
+		}
+		
+		//added by Mike, 20260516
+		if (answerInput.value.length>14) {
+			//max 15 operands and operators including the decimal point 
+			//unless it's = sign
+			
+			//alert(sOperator);
+			
+			if (sOperator!="=") {
 				return;
 			}
 		}
