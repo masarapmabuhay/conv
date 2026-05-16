@@ -160,7 +160,8 @@ instead of:<br/>
 +updated: max digits to be `14` instead of `12`; though equals sign is allowed to be pressed as the 15th input<br/>
 +increased: length of `AnswerInput`'s display to show no partly drawn characters<br/>
 +fixed: width too long for standard Android via changing it from `260px` to `240px`<br/>
-+updated: equals sign function to continue to process operation even when the BACKSPACE button displays "CLEAR" when there's an operator in `answerInput`
++updated: equals sign function to continue to process operation even when the BACKSPACE button displays "CLEAR" when there's an operator in `answerInput`<br/>
++fixed: focused `AnswerInput` not displayed uniformly with Firefox, Chrome, Safari on Edge
 
 # Get PhilNITS Certified!
 
