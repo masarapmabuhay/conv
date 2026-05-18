@@ -11,7 +11,7 @@
 ' @company: USBONG
 ' @author: SYSON, MICHAEL B.
 ' @date created: 20221214
-' @date updated: 20260516; from 20260515
+' @date updated: 20260518; from 20260516
 ' @website: www.usbong.ph
 '
 ' References: 
@@ -24,7 +24,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-	<link rel="icon" type="image/x-icon" href="./assets/images/calcfavicon.png">
+	<link rel="icon" type="image/x-icon" href="./assets/images/calcalphaicon.png">
   </head>
 
   <title>
@@ -52,7 +52,7 @@
 			-ms-user-select: none; /* IE 10 and IE 11 */
 			user-select: none; /* Standard syntax */
 
-			/* added by Mike, 20260512; from 20221012 */
+			/* added by Mike, 20260518; from 20260512 */
 			transform: scale(2.0);
 			transform-origin: top left;
 
@@ -125,6 +125,40 @@
 			font-size: 8pt;
 			font-weight: bold;
 		}
+		
+		button.buttonBackspace:active
+		{
+			text-align: center;
+			-webkit-appearance: none;
+			appearance: none;
+			border-radius: 5px;		
+			border: 1px solid #ccc;
+			color: black;
+			
+			background-color: #aaa;
+			border: 1px solid #555;			
+			
+			float: right;
+			position: absolute;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+  		
+			width: 4.2em; /*40px;*/
+			height: 40px;
+
+			padding-top: 4px;
+			padding-bottom: 4px;
+			padding-right: 0px;
+			padding-left: 0px;
+
+			margin-top: 2px;
+			margin-bottom: 4px;
+
+			font-family: Arial;
+			font-size: 8pt;
+			font-weight: bold;
+		}
 
 		button.buttonDefault
 		{
@@ -134,8 +168,8 @@
 			border-radius: 5px;
 			border: 1px solid #ccc;
 			color: black;
-
-			width: 1.8em; /*40px;*/
+			
+			width: 2em; /*1.8em; 40px;*/
 			height: 40px;
 
 			column-count: 1;
@@ -153,16 +187,19 @@
 			font-weight: bold;
 		}
 		
-		button.buttonZero
+		button.buttonDefault:active
 		{
 			text-align: center;
 			-webkit-appearance: none;
 			appearance: none;
-			border-radius: 5px;		
+			border-radius: 5px;
 			border: 1px solid #ccc;
 			color: black;
+			
+			background-color: #aaa;
+			border: 1px solid #555;
 
-			width: 3.8em; /*84px;*/
+			width: 2em; /*1.8em; 40px;*/
 			height: 40px;
 
 			column-count: 1;
@@ -179,6 +216,120 @@
 			font-size: 18pt;
 			font-weight: bold;
 		}
+		
+		button.buttonDefaultLeftMostColumn
+		{
+			text-align: center;
+			-webkit-appearance: none;
+			appearance: none;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			color: black;
+
+			width: 2em; /*1.8em; 40px;*/
+			height: 40px;
+
+			column-count: 1;
+			padding-top: 4px;
+			padding-bottom: 4px;
+			padding-right: 0px;
+			padding-left: 0px;
+
+			margin-left: 0.5em; /* 0.05em;*/
+			margin-top: 2px;
+			margin-bottom: 4px;
+
+			font-family: Arial;
+			font-size: 18pt;
+			font-weight: bold;
+		}
+
+		button.buttonDefaultLeftMostColumn:active
+		{
+			text-align: center;
+			-webkit-appearance: none;
+			appearance: none;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			color: black;
+			
+			background-color: #aaa;
+			border: 1px solid #555;			
+
+			width: 2em; /*1.8em; 40px;*/
+			height: 40px;
+
+			column-count: 1;
+			padding-top: 4px;
+			padding-bottom: 4px;
+			padding-right: 0px;
+			padding-left: 0px;
+
+			margin-left: 0.5em; /* 0.05em;*/
+			margin-top: 2px;
+			margin-bottom: 4px;
+
+			font-family: Arial;
+			font-size: 18pt;
+			font-weight: bold;
+		}
+		
+		button.buttonZero
+		{
+			text-align: center;
+			-webkit-appearance: none;
+			appearance: none;
+			border-radius: 5px;		
+			border: 1px solid #ccc;
+			color: black;
+
+			width: 4.2em; /*3.8em; 84px;*/
+			height: 40px;
+
+			column-count: 1;
+			padding-top: 4px;
+			padding-bottom: 4px;
+			padding-right: 0px;
+			padding-left: 0px;
+
+			margin-left: 0.5em; /* 0.05em;*/
+			margin-top: 2px;
+			margin-bottom: 4px;
+
+			font-family: Arial;
+			font-size: 18pt;
+			font-weight: bold;
+		}
+		
+		button.buttonZero:active
+		{
+			text-align: center;
+			-webkit-appearance: none;
+			appearance: none;
+			border-radius: 5px;		
+			border: 1px solid #ccc;
+			color: black;
+			
+			background-color: #aaa;
+			border: 1px solid #555;			
+
+			width: 4.2em; /*3.8em; 84px;*/
+			height: 40px;
+
+			column-count: 1;
+			padding-top: 4px;
+			padding-bottom: 4px;
+			padding-right: 0px;
+			padding-left: 0px;
+
+			margin-left: 0.5em; /* 0.05em;*/
+			margin-top: 2px;
+			margin-bottom: 4px;
+
+			font-family: Arial;
+			font-size: 18pt;
+			font-weight: bold;
+		}		
 
 		button.buttonEquals
 		{
@@ -192,13 +343,13 @@
 			float: right;
 			position: absolute;
 			top: 136px;
-			left: 8.15em; /*176px; 4*40+4*4 */
+			left: 8.95em; /*8.15em; 176px; 4*40+4*4 */
 			
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
   
-			width: 1.8em; /*40px;*/
+			width: 2em; /*1.8em; 40px;*/
 			height: 86px;
 
 			column-count: 1;
@@ -207,6 +358,7 @@
 			padding-right: 0px;
 			padding-left: 0px;
 
+			margin-left: 0.5em;
 			margin-top: 4px;
 			margin-bottom: 4px;
 
@@ -214,6 +366,45 @@
 			font-size: 18pt;
 			font-weight: bold;
 		}
+		
+		button.buttonEquals:active
+		{
+			text-align: center;
+			-webkit-appearance: none;
+			appearance: none;
+			border-radius: 5px;		
+			border: 1px solid #ccc;
+			color: black;
+			
+			background-color: #aaa;
+			border: 1px solid #555;
+			
+			float: right;
+			position: absolute;
+			top: 136px;
+			left: 8.95em; /*8.15em; 176px; 4*40+4*4 */
+			
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+  
+			width: 2em; /*1.8em; 40px;*/
+			height: 86px;
+
+			column-count: 1;
+			padding-top: 4px;
+			padding-bottom: 4px;
+			padding-right: 0px;
+			padding-left: 0px;
+
+			margin-left: 0.5em;
+			margin-top: 4px;
+			margin-bottom: 4px;
+
+			font-family: Arial;
+			font-size: 18pt;
+			font-weight: bold;
+		}		
 		
 		/* reference: Google AI Overview */
 		input:focus {
@@ -366,6 +557,7 @@
 				document.getElementById("buttonEqualsId").click();
 			}
 			else if (e.keyCode==27) { //key Escape
+				reset(); //added by Mike, 20260518
 				document.getElementById("buttonEqualsId").click();
 			}
 			else if (e.keyCode==16) { //key SHIFT
@@ -791,12 +983,11 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 		
 		//added by Mike, 20260516
 		answerInput.focus();
-		
+				
 		//added by Mike, 20260430
 		if (backspaceButton.innerHTML.includes("CLEAR")) {
 			
 			backspaceButton.innerHTML = "BACK<br/>SPACE";
-
 
 			//edited by Mike, 20260516; from 20260515
 			//if (sOperator.at(-1)=="=") {
@@ -937,25 +1128,16 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 						//only one operator allowed
 						//due to 9/3*2; error where 9/(3*2) is done instead of (9/3)*2
 						if (arrayOperator.length>0) {
-/*						
-							alert("!!!arrayOperator.at(-1): "+arrayOperator.at(-1));
-
-							alert("!!!answerInput.value: "+answerInput.value);
-							alert("!!!sCurrOperand: "+sCurrOperand);
-*/														
 							//set this here due to 3*3-B2=error; without the following:
 							//arrayOperand.push(parseFloat(sCurrOperand));
 							//although it's only needed if the user presses backspace
 
-							backspaceButton.innerHTML = "CLEAR";							
+							//edited by Mike, 20260518
+							//backspaceButton.innerHTML = "CLEAR";							
+							inputOperator("=");
+							inputOperator(sOperator);
+							//alert("END!!!");
 							
-							//sCurrOperand=arrayOperand.at(-1);
-/*
-							arrayOperand.push(parseFloat(sCurrOperand));
-							sCurrOperand="";		
-*/							
-							//sCurrOperand="";		
-
 							return;
 						}
 					}
@@ -1959,19 +2141,19 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 	<div>
 		<div>
 			<div>
-				<button id="buttonSevenId" class="buttonDefault" onclick="inputDigit(7)">7</button>
+				<button id="buttonSevenId" class="buttonDefaultLeftMostColumn" onclick="inputDigit(7)">7</button>
 				<button id="buttonEightId" class="buttonDefault" onclick="inputDigit(8)">8</button>
 				<button id="buttonNineId" class="buttonDefault" onclick="inputDigit(9)">9</button>
 				<button id="buttonDivideId" class="buttonDefault" onclick="inputOperator('÷')">÷</button>
 			</div>
 			<div>
-				<button id="buttonFourId" class="buttonDefault" onclick="inputDigit(4)">4</button>
+				<button id="buttonFourId" class="buttonDefaultLeftMostColumn" onclick="inputDigit(4)">4</button>
 				<button id="buttonFiveId" class="buttonDefault" onclick="inputDigit(5)">5</button>
 				<button id="buttonSixId" class="buttonDefault" onclick="inputDigit(6)">6</button>
 				<button id="buttonMultiplyId" class="buttonDefault" onclick="inputOperator('×')">×</button>
 			</div>
 			<div>
-				<button id="buttonOneId" class="buttonDefault" onclick="inputDigit(1)">1</button>
+				<button id="buttonOneId" class="buttonDefaultLeftMostColumn" onclick="inputDigit(1)">1</button>
 				<button id="buttonTwoId" class="buttonDefault" onclick="inputDigit(2)">2</button>
 				<button id="buttonThreeId" class="buttonDefault" onclick="inputDigit(3)">3</button>
 				<button id="buttonMinusId" class="buttonDefault" onclick="inputOperator('-')">-</button>
@@ -1980,7 +2162,7 @@ alert(">>>>"+sCurrOperandInArray.substring(0,sCurrOperandInArray.length-1));
 				<button id="buttonZeroId" class="buttonZero" onclick="inputDigit(0)">0</button>
 				<button id="buttonDotId" class="buttonDefault" onclick="inputDigit('.')">.</button>
 				<button id="buttonPlusId" class="buttonDefault" onclick="inputOperator('+')">+</button>
-				<button id="buttonEqualsId" id="buttonEqualsId" class="buttonEquals" onclick="inputOperator('=')">=</button>
+				<button id="buttonEqualsId" class="buttonEquals" onclick="inputOperator('=')">=</button>
 			</div>
 		</div>
 	</div>
