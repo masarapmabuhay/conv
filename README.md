@@ -148,7 +148,7 @@ TODO: -add: processing of parentheses<br/>
 +updated: calc fav icon to use the transparent/alpha color;<br/>
 TODO: -add: processing of parentheses<br/>
 
-18. 20260516 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/>
+18. 20260516; http://store.usbong.ph/server/calc/calc.html<br/>
 +added: auto-focus on the `AnswerInput` so that when `/` is pressed on the keyboard, "Quick find" on Firefox browser isn't opened<br/>
 +added: relevant keys other than those near the numlock could be pressed, including those combined with SHIFT down<br/>
 +noted: display error when the following is used:<br/>
@@ -161,7 +161,12 @@ instead of:<br/>
 +increased: length of `AnswerInput`'s display to show no partly drawn characters<br/>
 +fixed: width too long for standard Android via changing it from `260px` to `240px`<br/>
 +updated: equals sign function to continue to process operation even when the BACKSPACE button displays "CLEAR" when there's an operator in `answerInput`<br/>
-+fixed: focused `AnswerInput` not displayed uniformly with Firefox, Chrome, Safari on Edge
++fixed: focused `AnswerInput` not displayed uniformly with Firefox, Chrome, Safari on Edge<br/>
+
+19. 20260518 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/> 
++added: when a new operator is entered, calc performs the operation if an existing operator is already present and then adds the new operator;<br/> 
++updated: increased width of buttons, and their positions accordingly;<br/> 
++updated: ESCAPE key to `reset()` and then execute`inputOperator("=")`<br/> 
 
 # Get PhilNITS Certified!
 
