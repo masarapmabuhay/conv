@@ -148,7 +148,7 @@ TODO: -add: processing of parentheses<br/>
 +updated: calc fav icon to use the transparent/alpha color;<br/>
 TODO: -add: processing of parentheses<br/>
 
-18. 20260516; http://store.usbong.ph/server/calc/calc.html<br/>
+18. 20260516; http://store.usbong.ph/server/calc/calc20260516.html<br/>
 +added: auto-focus on the `AnswerInput` so that when `/` is pressed on the keyboard, "Quick find" on Firefox browser isn't opened<br/>
 +added: relevant keys other than those near the numlock could be pressed, including those combined with SHIFT down<br/>
 +noted: display error when the following is used:<br/>
@@ -163,10 +163,15 @@ instead of:<br/>
 +updated: equals sign function to continue to process operation even when the BACKSPACE button displays "CLEAR" when there's an operator in `answerInput`<br/>
 +fixed: focused `AnswerInput` not displayed uniformly with Firefox, Chrome, Safari on Edge<br/>
 
-19. 20260518 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/> 
+19. 20260518; http://store.usbong.ph/server/calc/calc20260518.html<br/> 
 +added: when a new operator is entered, calc performs the operation if an existing operator is already present and then adds the new operator;<br/> 
 +updated: increased width of buttons, and their positions accordingly;<br/> 
-+updated: ESCAPE key to `reset()` and then execute`inputOperator("=")`<br/> 
++updated: ESCAPE key to `reset()` and then execute`inputOperator("=")`<br/>
+
+20. 20260519 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/> 
++removed: debug-related comments, thereby reducing the file size from 55KB to 30KB;<br/>
++removed: blinking border effect in `AnswerInput` whenever a button is mouse-clicked;<br/>
++tested: calc functionality; now as usable as how I use the calculator in my day-to-day working life;<br/> 
 
 # Get PhilNITS Certified!
 
