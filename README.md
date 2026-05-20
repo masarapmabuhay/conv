@@ -177,6 +177,8 @@ instead of:<br/>
 +updated: output to make sure that all the digits to the left of the decimal point are present;<br/>
 +opted: to keep the decimal point even if the numbers to its right aren't anymore displayed due to max length reached;
 
+<img src="https://github.com/usbong/calc/blob/main/screenshots/calcScreenshotV20260520T1514.png" width="50%">
+
 # Get PhilNITS Certified!
 
 https://philnits.org/
