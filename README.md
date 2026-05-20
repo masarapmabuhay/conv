@@ -168,10 +168,14 @@ instead of:<br/>
 +updated: increased width of buttons, and their positions accordingly;<br/> 
 +updated: ESCAPE key to `reset()` and then execute`inputOperator("=")`<br/>
 
-20. 20260519 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/> 
+20. 20260519; http://store.usbong.ph/server/calc/calc20260519.html<br/> 
 +removed: debug-related comments, thereby reducing the file size from 55KB to 30KB;<br/>
 +removed: blinking border effect in `AnswerInput` whenever a button is mouse-clicked;<br/>
 +tested: calc functionality; now as usable as how I use the calculator in my day-to-day working life;<br/> 
+
+21. 20260520 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/> 
++updated: output to make sure that all the digits to the left of the decimal point are present;<br/>
++opted: to keep the decimal point even if the numbers to its right aren't anymore displayed due to max length reached;
 
 # Get PhilNITS Certified!
 
