@@ -11,7 +11,7 @@
 ' @company: USBONG
 ' @author: SYSON, MICHAEL B.
 ' @date created: 20221214
-' @date updated: 20260519; from 20260518
+' @date updated: 20260520; from 20260519
 ' @website: www.usbong.ph
 '
 ' References: 
@@ -1125,13 +1125,35 @@
 				arrayOperand.push(sCurrOperand);
 				arrayOperator.push("=");
 			}
-						
+			
 			//added by Mike, 20260430
 			if (sAnswer.includes(".")) {
-				if (sAnswer.length>10) {
-					//11 digits including the decimal point
-					sAnswer=sAnswer.substring(0,11); 
+				//edited by Mike, 20260520
+				//make sure that all the digits to the left of the decimal point 
+				//are all in the answer; including the decimal point
+				var sAnswerTemp=sAnswer.substring(0,sAnswer.indexOf(".")+1);
+				
+				//11 is the max; including the decimal point
+				var iRemainingCharacters = 11-sAnswerTemp.length;
+
+				if (iRemainingCharacters<=0) {
+					sAnswer=sAnswerTemp;
 				}
+				else {
+					//inclusive at the start only;
+					sAnswer=sAnswerTemp.concat(sAnswer.substring(sAnswer.indexOf(".")+1,sAnswer.indexOf(".")+1+iRemainingCharacters));
+				}
+
+/*				
+				//removed by Mike, 20260520
+				//keep the decimal point;
+				//as with the case: 7777777777/3;
+				//ten 7's; results to "2592592592."
+				//so update to be "2592592592"
+				if (getPlacesAfterDecimalPoint(sAnswer)==0) {
+					sAnswer=sAnswer.replace(".","");
+				}
+*/				
 			}
 
 			//edited by Mike, 20260502
