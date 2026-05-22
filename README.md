@@ -173,11 +173,21 @@ instead of:<br/>
 +removed: blinking border effect in `AnswerInput` whenever a button is mouse-clicked;<br/>
 +tested: calc functionality; now as usable as how I use the calculator in my day-to-day working life;<br/> 
 
-21. 20260520 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/> 
+21. 20260520; http://store.usbong.ph/server/calc/calc20260520.html<br/> 
 +updated: output to make sure that all the digits to the left of the decimal point are present;<br/>
 +opted: to keep the decimal point even if the numbers to its right aren't anymore displayed due to max length reached;
 
 <img src="https://github.com/usbong/calc/blob/main/screenshots/calcScreenshotV20260520T1514.png" width="50%">
+
+22. 20260522 (CURRENT); http://store.usbong.ph/server/calc/calc.html<br/>
++fixed: `.-6` incorrectly results to `0` instead of `-6`, because `.` (not a number) is now set to `0`;<br/>
++fixed: `.6*6` incorrectly results to `3.599...` instead of `3.6`;<br/>
++fixed: `1.12*100` incorrectly results to `112.00000000000001`, instead of `112` by using `Math.round` after multiplying by the power of `10` raised to a specified number based on the input operands; didn't anymore use `Number.EPSILON` due to incorrect result if operand is `0`;<br/>
++fixed: `0/0=5` incorrectly results to `Err5`, instead of `5`;<br/>
++updated: font size to `1.7rem` for Android, while the default is `1.9rem`; adjusted button font size and position accordingly;<br/>
++increased: `AnswerInput` width on iPad due to additional one digit accepted;<br/>
++updated: when `AnswerInput` is `Err` as a result of `0/0`, for example, pressing any of the operators (except `-`) results to `0`; meanwhile, when `-` is pressed, `-` is immediately put instead of `0`;<br/>
++updated: `0` cannot be added to the left unless there's a `.`
 
 # Get PhilNITS Certified!
 
