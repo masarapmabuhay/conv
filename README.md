@@ -2,6 +2,10 @@
 
 Can you make use of your knowledge of HTML5 and Javascript to create a simple calculator app that runs on web browers?
 
+This is what I've been able to accomplish in four weeks using my available free time.<br/>
+<br/>
+http://store.usbong.ph/server/calc/calc.html
+
 # Development Logs
 
 1. Create the appearance first. Without yet interactivity.<br/>
@@ -187,7 +191,21 @@ instead of:<br/>
 +updated: font size to `1.7rem` for Android, while the default is `1.9rem`; adjusted button font size and position accordingly;<br/>
 +increased: `AnswerInput` width on iPad due to additional one digit accepted;<br/>
 +updated: when `AnswerInput` is `Err` as a result of `0/0`, for example, pressing any of the operators (except `-`) results to `0`; meanwhile, when `-` is pressed, `-` is immediately put instead of `0`;<br/>
-+updated: `0` cannot be added to the left unless there's a `.`
++updated: `0` cannot be added to the left unless there's a `.`<br/>
+
+<table border="1">
+  <tr>
+    <td>
+		<h3>
+		Thanks for checking out my development logs.<br/>
+		<br/>
+		This is what I've been able to accomplish in four weeks using my available free time.<br/>
+		<br/>
+		http://store.usbong.ph/server/calc/calc.html
+		</h3>
+	</td>
+  </tr>
+</table>
 
 # Get PhilNITS Certified!
 
