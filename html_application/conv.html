@@ -472,7 +472,8 @@
 
 			//alert(fAnswerInputLeft);
 			//1 kg = approx 2.205 pounds
-			answerInputRight.value = fAnswerInputLeft*fONE_KG_TO_ONE_POUND;
+			//TODO: -update: toFixed(...)
+			answerInputRight.value = (fAnswerInputLeft*fONE_KG_TO_ONE_POUND).toFixed(4);
 		}
 	}
 	
@@ -497,7 +498,8 @@
 
 			//alert(fAnswerInputLeft);
 			//1 kg = approx 2.205 pounds
-			answerInputLeft.value = fAnswerInputRight/fONE_KG_TO_ONE_POUND;
+			//TODO: -update: toFixed(...)
+			answerInputLeft.value = (fAnswerInputRight/fONE_KG_TO_ONE_POUND).toFixed(4);
 		}
 	}	
 
