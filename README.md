@@ -10,7 +10,9 @@ Can you make use of your knowledge of HTML5 and Javascript to create a simple un
 
 2. 20260527 (CURRENT); http://store.usbong.ph/server/conv/conv.html<br/>
 +added: basic conversion from kg to pound or vice-versa; using constant `1 kg` is to `2.20462262 pounds`;<br/> 
-+noted: conversion quickly done and without having to refresh the browser due to using Javascript<br/>
++noted: conversion quickly done and without having to refresh the browser due to using Javascript;<br/>
++added: `toFixed(4)` to reduce not have too many numbers after the decimal point;<br/>
+TODO: -verify parameter put in `toFixed(...)`;
 
 # Get PhilNITS Certified!
 
