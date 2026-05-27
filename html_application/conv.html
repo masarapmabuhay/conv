@@ -11,7 +11,7 @@
 ' @company: USBONG
 ' @author: SYSON, MICHAEL B.
 ' @date created: 20221214
-' @date updated: 20260525; from 20260520
+' @date updated: 20260527; from 20260526
 ' @website: www.usbong.ph
 '
 ' References: 
@@ -449,12 +449,74 @@
 	var arrayOperandTemp = []; 
 	var arrayOperatorTemp = [];
 	
+	const fONE_KG_TO_ONE_POUND = 2.20462262;
+	
+	function processAnswerInputLeft() {
+		var answerInputLeft = document.getElementById("answerInputLeftId");
+		var answerInputRight = document.getElementById("answerInputRightId");
+		
+		//alert("HERE!!!");
+		answerInputLeft.value = answerInputLeft.value.trim();
+
+		if (answerInputLeft.value.trim().length==0) {
+			return
+		}
+		
+		if (Number.isNaN(Number(answerInputLeft.value))) {
+			//alert("NAN!!");
+
+			answerInputLeft.value = answerInputLeft.value.substring(0,answerInputLeft.value.length-1);
+		}
+		else { //noted space accepted as a number; so do a trim before this 
+			var fAnswerInputLeft = parseFloat(answerInputLeft.value);
+
+			//alert(fAnswerInputLeft);
+			//1 kg = approx 2.205 pounds
+			answerInputRight.value = fAnswerInputLeft*fONE_KG_TO_ONE_POUND;
+		}
+	}
+	
+	function processAnswerInputRight() {
+		var answerInputLeft = document.getElementById("answerInputLeftId");
+		var answerInputRight = document.getElementById("answerInputRightId");
+		
+		//alert("HERE!!!");
+		answerInputRight.value = answerInputRight.value.trim();
+
+		if (answerInputRight.value.trim().length==0) {
+			return
+		}
+		
+		if (Number.isNaN(Number(answerInputRight.value))) {
+			//alert("NAN!!");
+
+			answerInputRight.value = answerInputRight.value.substring(0,answerInputRight.value.length-1);
+		}
+		else { //noted space accepted as a number; so do a trim before this 
+			var fAnswerInputRight = parseFloat(answerInputRight.value);
+
+			//alert(fAnswerInputLeft);
+			//1 kg = approx 2.205 pounds
+			answerInputLeft.value = fAnswerInputRight/fONE_KG_TO_ONE_POUND;
+		}
+	}	
+
+	//TODO -update: this
+	function roundDecimalPointBUGGY(sInput) {
+		if (sInput.includes(".")) {
+			if (sInput.length>6) {
+				return sInput.toFixed(sInput.length-getPlacesAfterDecimalPoint(parseFloat(sInput)));
+			}
+		}
+	}
+	
 	function onLoad() {
 		var answerInputLeft = document.getElementById("answerInputLeftId");
 		answerInputLeft.value="";
 
 		var answerInputRight = document.getElementById("answerInputRightId");
 		answerInputRight.value="";
+		
 		
 		//alert(navigator.userAgent);
 /*
@@ -563,13 +625,13 @@
 		</tr>
 		<tr>
 			<td>
-				<input type="text" id="answerInputLeftId" class="inputAnswer" value="0" min="-99999" max="99999">
+				<input type="text" id="answerInputLeftId" class="inputAnswer" value="0" min="-99999" max="99999" oninput="processAnswerInputLeft()">
 			</td>
 			<td>
 				<span style="color: white;">=</span>
 			</td>
 			<td>
-				<input type="text" id="answerInputRightId" class="inputAnswer" value="0" min="-99999" max="99999">
+				<input type="text" id="answerInputRightId" class="inputAnswer" value="0" min="-99999" max="99999" oninput="processAnswerInputRight()">
 			</td>
 		</tr>
 		<tr>
