@@ -492,6 +492,10 @@
 		for (iCount = 0; iCount < iCountMax; iCount++) {
 			//alert(sInput.at(iCount));
 
+			if (sInput.at(iCount).includes(".")) {
+				continue;
+			}
+
 			if (Number.isNaN(Number(sInput.at(iCount)))) {
 				if (bIsLeft) {
 					answerInputLeft.value = answerInputLeft.value.replace(sInput.at(iCount), "");
@@ -511,14 +515,17 @@
 		var answerInputLeft = document.getElementById("answerInputLeftId");
 		var answerInputRight = document.getElementById("answerInputRightId");
 		
-		//alert("HERE!!!");
 		answerInputLeft.value = answerInputLeft.value.trim();
 
 		if (answerInputLeft.value.trim().length==0) {
 			return
 		}
-		
+
 		//added by Mike, 20260528
+		if (answerInputLeft.value==".") {
+			answerInputLeft.value = "0.";
+		}	
+
 		checkIsInputNumber(answerInputLeft.value, true);
 		
 		if (Number.isNaN(Number(answerInputLeft.value))) {
@@ -536,6 +543,10 @@
 			//edited by Mike, 20260528
 			//answerInputRight.value = (fAnswerInputLeft*fONE_KG_TO_ONE_POUND).toFixed(4);
 			answerInputRight.value = (fAnswerInputLeft*fMultiplier).toFixed(4);
+			
+			if (Number.isNaN(Number(answerInputRight.value))) {
+				answerInputRight.value = "";
+			}
 		}
 	}
 	
@@ -543,12 +554,16 @@
 		var answerInputLeft = document.getElementById("answerInputLeftId");
 		var answerInputRight = document.getElementById("answerInputRightId");
 		
-		//alert("HERE!!!");
 		answerInputRight.value = answerInputRight.value.trim();
 
 		if (answerInputRight.value.trim().length==0) {
 			return
 		}
+
+		//added by Mike, 20260528
+		if (answerInputLeft.value==".") {
+			answerInputLeft.value = "0.";
+		}	
 		
 		//added by Mike, 20260528
 		checkIsInputNumber(answerInputRight.value, false);
@@ -568,6 +583,10 @@
 			//edited by Mike, 20260528
 			//answerInputLeft.value = (fAnswerInputRight/fONE_KG_TO_ONE_POUND).toFixed(4);
 			answerInputLeft.value = (fAnswerInputRight/fMultiplier).toFixed(4);
+			
+			if (Number.isNaN(Number(answerInputLeft.value))) {
+				answerInputLeft.value = "";
+			}			
 		}	
 	}	
 
