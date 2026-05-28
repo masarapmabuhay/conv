@@ -8,11 +8,17 @@ Can you make use of your knowledge of HTML5 and Javascript to create a simple un
 
 <img src="https://github.com/masarapmabuhay/conv/blob/main/screenshots/convScreenshotV20260525T1522.png" width="60%">
 
-2. 20260527 (CURRENT); http://store.usbong.ph/server/conv/conv.html<br/>
+2. 20260527; http://store.usbong.ph/server/conv/conv20260527.html<br/>
 +added: basic conversion from kg to pound or vice-versa; using constant `1 kg` is to `2.20462262 pounds`;<br/> 
 +noted: conversion quickly done and without having to refresh the browser due to using Javascript;<br/>
 +added: `toFixed(4)` to reduce not have too many numbers after the decimal point;<br/>
 TODO: -verify parameter put in `toFixed(...)`;
+
+3. 20260528 (CURRENT); http://store.usbong.ph/server/conv/conv.html<br/>
++added: `select` function that auto-updates the labels and the multiplier based on the chosen option; `Mass` or `Length`<br/>
++added: `Length` coversion; `foot` to `centimeter`; in addition to `Mass`<br/>
++updated: position of cursor in input boxes to `center` instead of `right`<br/>
+TODO: -fix: letters can still be inserted between the numbers in the input box<br/>
 
 # Get PhilNITS Certified!
 
