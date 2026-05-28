@@ -18,7 +18,10 @@ TODO: -verify parameter put in `toFixed(...)`;
 +added: `select` function that auto-updates the labels and the multiplier based on the chosen option; `Mass` or `Length`<br/>
 +added: `Length` coversion; `foot` to `centimeter`; in addition to `Mass`<br/>
 +updated: position of cursor in input boxes to `center` instead of `right`<br/>
-TODO: -fix: letters can still be inserted between the numbers in the input box<br/>
++fixed: `NaN` is displayed in the input box when the other input box has received a letter in the alphabet or some other non-number character<br/>
++fixed: letters in the alphabet can still be inserted between the numbers in the input box<br/>
++fixed: decimal point cannot be added if the input box is blank<br/>
+TODO: -verify parameter put in `toFixed(...)`;<br/>
 
 # Get PhilNITS Certified!
 
