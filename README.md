@@ -21,6 +21,7 @@ TODO: -verify parameter put in `toFixed(...)`;
 +fixed: `NaN` is displayed in the input box when the other input box has received a letter in the alphabet or some other non-number character<br/>
 +fixed: letters in the alphabet can still be inserted between the numbers in the input box<br/>
 +fixed: decimal point cannot be added if the input box is blank<br/>
++updated: page's scale level based on the user's machine specs and the browser that he's using<br/>
 TODO: -verify parameter put in `toFixed(...)`;<br/>
 
 # Get PhilNITS Certified!
