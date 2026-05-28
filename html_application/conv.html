@@ -11,7 +11,7 @@
 ' @company: USBONG
 ' @author: SYSON, MICHAEL B.
 ' @date created: 20221214
-' @date updated: 20260527; from 20260526
+' @date updated: 20260528; from 20260527
 ' @website: www.usbong.ph
 '
 ' References: 
@@ -99,7 +99,7 @@
 			font-family: Arial;
 			font-size: 1.9rem;
 
-			text-align: right;
+			text-align: center;
         }
 		
 		span.spanUnitLabel
@@ -450,6 +450,36 @@
 	var arrayOperatorTemp = [];
 	
 	const fONE_KG_TO_ONE_POUND = 2.20462262;
+	const fONE_FOOT_TO_ONE_CENTIMETER = 30.48;
+	
+	var fMultiplier = fONE_KG_TO_ONE_POUND;
+	
+	//Reference Google AI Overview
+	function processSelectedUsageType(val) {
+		//alert("VAL!!: "+val);
+
+		var answerInputLeft = document.getElementById("answerInputLeftId");
+		var answerInputRight = document.getElementById("answerInputRightId");
+		
+		var unitLabelLeft = document.getElementById("unitLabelLeftId");
+		var unitLabelRight = document.getElementById("unitLabelRightId");
+		
+		answerInputLeft.value = "";
+		answerInputRight.value = "";
+		
+		if (val.includes("Mass")) {
+			unitLabelLeft.innerHTML = "Foot";
+			unitLabelRight.innerHTML = "Centimeter";
+
+			fMultiplier = fONE_FOOT_TO_ONE_CENTIMETER;
+		}
+		else if (val.includes("Length")) {
+			unitLabelLeft.innerHTML = "Kilogram";
+			unitLabelRight.innerHTML = "Pound";
+			
+			fMultiplier = fONE_KG_TO_ONE_POUND;
+		}
+	}
 	
 	function processAnswerInputLeft() {
 		var answerInputLeft = document.getElementById("answerInputLeftId");
@@ -473,7 +503,10 @@
 			//alert(fAnswerInputLeft);
 			//1 kg = approx 2.205 pounds
 			//TODO: -update: toFixed(...)
-			answerInputRight.value = (fAnswerInputLeft*fONE_KG_TO_ONE_POUND).toFixed(4);
+			
+			//edited by Mike, 20260528
+			//answerInputRight.value = (fAnswerInputLeft*fONE_KG_TO_ONE_POUND).toFixed(4);
+			answerInputRight.value = (fAnswerInputLeft*fMultiplier).toFixed(4);
 		}
 	}
 	
@@ -499,7 +532,10 @@
 			//alert(fAnswerInputLeft);
 			//1 kg = approx 2.205 pounds
 			//TODO: -update: toFixed(...)
-			answerInputLeft.value = (fAnswerInputRight/fONE_KG_TO_ONE_POUND).toFixed(4);
+			
+			//edited by Mike, 20260528
+			//answerInputLeft.value = (fAnswerInputRight/fONE_KG_TO_ONE_POUND).toFixed(4);
+			answerInputLeft.value = (fAnswerInputRight/fMultiplier).toFixed(4);
 		}
 	}	
 
@@ -619,9 +655,9 @@
 	<table>
 		<tr>
 			<td colspan="3">
-				<select class="selectUsageType">
-					<option selected>Mass</option>
-					<option>Length</option>
+				<select class="selectUsageType" onchange="processSelectedUsageType(this.value)">
+					<option selected>Length</option>
+					<option>Mass</option>
 				</select>
 			</td>
 		</tr>
@@ -638,12 +674,12 @@
 		</tr>
 		<tr>
 			<td>
-				<span class="spanUnitLabel">Kilogram</span>
+				<span id="unitLabelLeftId" class="spanUnitLabel">Kilogram</span>
 			</td>
 			<td>
 			</td>
 			<td>
-				<span class="spanUnitLabel">Pound</span>
+				<span id="unitLabelRightId" class="spanUnitLabel">Pound</span>
 			</td>
 		</tr>
 	</table>
