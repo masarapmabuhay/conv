@@ -481,6 +481,32 @@
 		}
 	}
 	
+	//added by Mike, 20260528
+	function checkIsInputNumber(sInput, bIsLeft) {
+		var answerInputLeft = document.getElementById("answerInputLeftId");
+		var answerInputRight = document.getElementById("answerInputRightId");
+		
+		var iCount = 0;
+		var iCountMax = sInput.length;
+		
+		for (iCount = 0; iCount < iCountMax; iCount++) {
+			//alert(sInput.at(iCount));
+
+			if (Number.isNaN(Number(sInput.at(iCount)))) {
+				if (bIsLeft) {
+					answerInputLeft.value = answerInputLeft.value.replace(sInput.at(iCount), "");
+					
+					//alert(answerInputLeft.value.replace(sInput.at(iCount), ""));
+				}
+				else {
+					answerInputRight.value = answerInputRight.value.replace(sInput.at(iCount), "");
+				}
+		
+				//alert("sInput: "+sInput);
+			}
+		}
+	}
+	
 	function processAnswerInputLeft() {
 		var answerInputLeft = document.getElementById("answerInputLeftId");
 		var answerInputRight = document.getElementById("answerInputRightId");
@@ -491,6 +517,9 @@
 		if (answerInputLeft.value.trim().length==0) {
 			return
 		}
+		
+		//added by Mike, 20260528
+		checkIsInputNumber(answerInputLeft.value, true);
 		
 		if (Number.isNaN(Number(answerInputLeft.value))) {
 			//alert("NAN!!");
@@ -521,6 +550,9 @@
 			return
 		}
 		
+		//added by Mike, 20260528
+		checkIsInputNumber(answerInputRight.value, false);
+		
 		if (Number.isNaN(Number(answerInputRight.value))) {
 			//alert("NAN!!");
 
@@ -536,7 +568,7 @@
 			//edited by Mike, 20260528
 			//answerInputLeft.value = (fAnswerInputRight/fONE_KG_TO_ONE_POUND).toFixed(4);
 			answerInputLeft.value = (fAnswerInputRight/fMultiplier).toFixed(4);
-		}
+		}	
 	}	
 
 	//TODO -update: this
