@@ -14,7 +14,7 @@ Can you make use of your knowledge of HTML5 and Javascript to create a simple un
 +added: `toFixed(4)` to reduce not have too many numbers after the decimal point;<br/>
 TODO: -verify parameter put in `toFixed(...)`;
 
-3. 20260528 (CURRENT); http://store.usbong.ph/server/conv/conv.html<br/>
+3. 20260528; http://store.usbong.ph/server/conv/conv20260528.html<br/>
 +added: `select` function that auto-updates the labels and the multiplier based on the chosen option; `Mass` or `Length`<br/>
 +added: `Length` coversion; `foot` to `centimeter`; in addition to `Mass`<br/>
 +updated: position of cursor in input boxes to `center` instead of `right`<br/>
@@ -23,6 +23,11 @@ TODO: -verify parameter put in `toFixed(...)`;
 +fixed: decimal point cannot be added if the input box is blank<br/>
 +updated: page's scale level based on the user's machine specs and the browser that he's using<br/>
 TODO: -verify parameter put in `toFixed(...)`;<br/>
+
+4. 20260529 (CURRENT); http://store.usbong.ph/server/conv/conv.html<br/>
++updated: UI on Android; larger font size, input boxes, etc;<br/>
++noted: Chrome on Android doesn't show the updated html page;<br/>
++noted: cursor position via `selectionStart` doesn't give the correct position if the input text is modified to be made longer;<br/>
 
 # Get PhilNITS Certified!
 
