@@ -98,8 +98,12 @@
 		
 		input.inputAnswer
         {
+/*		
 			width: 170px;
 			height: 60px;
+*/
+			width: 5.3em;
+			height: 1.8em;
 			
 			margin-top: 2px;
 			margin-bottom: 4px;
@@ -119,6 +123,12 @@
 			
 			display: block;
 			text-align: center;
+		}
+		
+		span.spanEqualsLabel
+		{
+			color: white; 
+			font-size: 3.2rem;
 		}
 
 		button.buttonBackspace
@@ -609,22 +619,27 @@
 	
 	function onLoad() {
 		var answerInputLeft = document.getElementById("answerInputLeftId");
-		answerInputLeft.value="";
+		answerInputLeft.value = "";
 
 		var answerInputRight = document.getElementById("answerInputRightId");
-		answerInputRight.value="";
+		answerInputRight.value = "";
 		
-		
+		var unitLabelLeft = document.getElementById("unitLabelLeftId");
+		var unitLabelRight = document.getElementById("unitLabelRightId");
+
+		var selectUsageType = document.getElementById("selectUsageTypeId");
+				
 		//alert(navigator.userAgent);
+
 		if (/Mobile|Android|webOS|iPhone|iPad|iPod|AppleWebKit|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 
 			//alert("detected: Mobile Browser!");
 			
-			bIsMobile=true;
+			var bIsMobile = true;
 
 			//edited by Mike, 20260515; from 20260514
 			if ((navigator.userAgent.includes("Macintosh")) || navigator.userAgent.includes("Mac")) {
-				var buttonEqualsButton = document.getElementById("buttonEqualsId");
+				//var buttonEqualsButton = document.getElementById("buttonEqualsId");
 			
 				//isIpad via the number of touch points;
 				if (navigator.maxTouchPoints > 1) {
@@ -650,11 +665,20 @@
 			}
 			//Android mobile
 			else {
-				answerInputLeft.style.width = "170px";
-				answerInputLeft.style.fontSize = "1.7rem";
+				document.body.style.transform = "scale(1.6)";
+				document.body.style.width = "100%";
+				document.body.style.height = "100%";
 
-				answerInputRight.style.width = "170px";
-				answerInputRight.style.fontSize = "1.7rem";
+				answerInputLeft.style.width = "4.2em";
+				answerInputRight.style.width = "4.2em";		
+				
+				answerInputLeft.style.fontSize = "4rem";
+				answerInputRight.style.fontSize = "4rem";
+				
+				unitLabelLeft.style.fontSize = "2rem";
+				unitLabelRight.style.fontSize = "2rem";		
+
+				selectUsageType.style.fontSize = "3rem";		
 			}
 		}
 		else {
@@ -678,6 +702,7 @@
 		answerInput.focus();
 */
 
+/*
 		sCurrOperand = "";
 		arrayOperator.pop();
 		answerInput.value = "";
@@ -687,6 +712,7 @@
 		//added by Mike, 20260501
 		arrayOperatorTemp = [];
 		arrayOperandTemp = [];
+*/		
 	}
 	
 	//added by Mike, 20260513
@@ -713,7 +739,7 @@
 	<table>
 		<tr>
 			<td colspan="3">
-				<select class="selectUsageType" onchange="processSelectedUsageType(this.value)">
+				<select id="selectUsageTypeId" class="selectUsageType" onchange="processSelectedUsageType(this.value)">
 					<option selected>Length</option>
 					<option>Mass</option>
 				</select>
@@ -724,7 +750,7 @@
 				<input type="text" id="answerInputLeftId" class="inputAnswer" value="0" min="-99999" max="99999" oninput="processAnswerInputLeft()">
 			</td>
 			<td>
-				<span style="color: white;">=</span>
+				<span class="spanEqualsLabel">=</span>
 			</td>
 			<td>
 				<input type="text" id="answerInputRightId" class="inputAnswer" value="0" min="-99999" max="99999" oninput="processAnswerInputRight()">
