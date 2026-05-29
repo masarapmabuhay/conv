@@ -29,6 +29,8 @@ TODO: -verify parameter put in `toFixed(...)`;<br/>
 +noted: Chrome on Android doesn't show the updated html page;<br/>
 +noted: cursor position via `selectionStart` doesn't give the correct position if the input text is modified to be made longer;<br/>
 
+<img src="https://github.com/usbong/conv/blob/main/screenshots/convScreenshotAndroidV20260529T1557.png" width="30%">
+
 # Get PhilNITS Certified!
 
 https://philnits.org/
