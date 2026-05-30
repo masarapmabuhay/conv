@@ -24,12 +24,19 @@ TODO: -verify parameter put in `toFixed(...)`;
 +updated: page's scale level based on the user's machine specs and the browser that he's using<br/>
 TODO: -verify parameter put in `toFixed(...)`;<br/>
 
-4. 20260529 (CURRENT); http://store.usbong.ph/server/conv/conv.html<br/>
+4. 20260529; http://store.usbong.ph/server/conv/conv20260529.html<br/>
 +updated: UI on Android; larger font size, input boxes, etc;<br/>
 +noted: Chrome on Android doesn't show the updated html page;<br/>
 +noted: cursor position via `selectionStart` doesn't give the correct position if the input text is modified to be made longer;<br/>
 
 <img src="https://github.com/usbong/conv/blob/main/screenshots/convScreenshotAndroidV20260529T1557.png" width="30%">
+
+5. 20260530 (CURRENT); http://store.usbong.ph/server/conv/conv.html<br/>
++fixed: more than one decimal point could be entered per input box<br/>
++fixed: kg and pound are for Mass; while foot and cm are for Length<br/>
++added: "lbs" in the label for pound, so that it's now "Pound (lbs)";<br/>
++added: image icons<br/>
++added: "Demo Version. Please report for any errors."; report links to the github page;<br/>
 
 # Get PhilNITS Certified!
 
