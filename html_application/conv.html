@@ -26,7 +26,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-	<link rel="icon" type="image/x-icon" href="./assets/images/calcalphaicon.png">
+	<link rel="icon" type="image/x-icon" href="./assets/images/convalphaicon.png">
   </head>
 
   <title>
@@ -456,6 +456,14 @@
 		  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 		  /*caret-color: transparent;*/
 		}
+		
+		a {
+		  color: rgb(0,199,255);
+		}
+		
+		a:hover {
+		  color: rgb(0,134,172);
+		}		
   </style>
 
   <script>
@@ -486,16 +494,16 @@
 		answerInputRight.value = "";
 		
 		if (val.includes("Mass")) {
+			unitLabelLeft.innerHTML = "Kilogram";
+			unitLabelRight.innerHTML = "Pound (lbs)";
+			
+			fMultiplier = fONE_KG_TO_ONE_POUND;
+		}
+		else if (val.includes("Length")) {
 			unitLabelLeft.innerHTML = "Foot";
 			unitLabelRight.innerHTML = "Centimeter";
 
 			fMultiplier = fONE_FOOT_TO_ONE_CENTIMETER;
-		}
-		else if (val.includes("Length")) {
-			unitLabelLeft.innerHTML = "Kilogram";
-			unitLabelRight.innerHTML = "Pound";
-			
-			fMultiplier = fONE_KG_TO_ONE_POUND;
 		}
 	}
 	
@@ -545,7 +553,7 @@
 		}	
 
 		checkIsInputNumber(answerInputLeft.value, true);
-		
+				
 		if (Number.isNaN(Number(answerInputLeft.value))) {
 			//alert("NAN!!");
 
@@ -630,7 +638,31 @@
 		var selectUsageType = document.getElementById("selectUsageTypeId");
 				
 		//alert(navigator.userAgent);
+		
+		//added by Mike, 20260530
+		answerInputLeft.addEventListener('keydown', (event) => {
+			if (event.key==".") {
+				const dotCount = answerInputLeft.value.split(".").length - 1; 
 
+				if (dotCount>0) { //if there's more than 1 dot
+					//no need to update the input text
+					event.preventDefault(); 
+				}
+			}
+		});
+
+		//added by Mike, 20260530
+		answerInputRight.addEventListener('keydown', (event) => {
+			if (event.key==".") {
+				const dotCount = answerInputRight.value.split(".").length - 1;
+
+				if (dotCount>0) { //if there's more than 1 dot
+					//no need to update the input text
+					event.preventDefault(); 
+				}
+			}
+		});
+			
 		if (/Mobile|Android|webOS|iPhone|iPad|iPod|AppleWebKit|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 
 			//alert("detected: Mobile Browser!");
@@ -763,7 +795,15 @@
 			<td>
 			</td>
 			<td>
-				<span id="unitLabelRightId" class="spanUnitLabel">Pound</span>
+				<span id="unitLabelRightId" class="spanUnitLabel">Pound (lbs)</span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align: center">
+				<br/>
+				<span style="color: white">
+				Demo Version. Please <a class="" target="_blank" href="https://github.com/usbong/calc">report</a> for any errors.
+				</span>
 			</td>
 		</tr>
 	</table>
