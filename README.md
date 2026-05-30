@@ -37,6 +37,7 @@ TODO: -verify parameter put in `toFixed(...)`;<br/>
 +added: "lbs" in the label for pound, so that it's now "Pound (lbs)";<br/>
 +added: image icons<br/>
 +added: "Demo Version. Please report for any errors."; report links to the github page;<br/>
++updated: default unit to measure to be `Mass` instead of `Length`<br/>
 
 # Get PhilNITS Certified!
 
