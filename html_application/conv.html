@@ -125,6 +125,16 @@
 			text-align: center;
 		}
 		
+		span.spanDisclaimerLabel
+		{
+			font-family: Arial;
+			font-size: 1rem;
+			color: white;
+			
+			display: block;
+			text-align: center;
+		}
+		
 		span.spanEqualsLabel
 		{
 			color: white; 
@@ -634,9 +644,10 @@
 		
 		var unitLabelLeft = document.getElementById("unitLabelLeftId");
 		var unitLabelRight = document.getElementById("unitLabelRightId");
+		var disclaimerLabel = document.getElementById("disclaimerLabelId");
 
 		var selectUsageType = document.getElementById("selectUsageTypeId");
-				
+						
 		//alert(navigator.userAgent);
 		
 		//added by Mike, 20260530
@@ -711,6 +722,8 @@
 				unitLabelRight.style.fontSize = "2rem";		
 
 				selectUsageType.style.fontSize = "3rem";		
+				
+				disclaimerLabel.style.fontSize = "1.8rem";
 			}
 		}
 		else {
@@ -772,8 +785,8 @@
 		<tr>
 			<td colspan="3">
 				<select id="selectUsageTypeId" class="selectUsageType" onchange="processSelectedUsageType(this.value)">
-					<option selected>Length</option>
-					<option>Mass</option>
+					<option selected>Mass</option>
+					<option>Length</option>
 				</select>
 			</td>
 		</tr>
@@ -801,7 +814,7 @@
 		<tr>
 			<td colspan="3" style="text-align: center">
 				<br/>
-				<span style="color: white">
+				<span id="disclaimerLabelId" class="spanDisclaimerLabel">
 				Demo Version. Please <a class="" target="_blank" href="https://github.com/usbong/calc">report</a> for any errors.
 				</span>
 			</td>
